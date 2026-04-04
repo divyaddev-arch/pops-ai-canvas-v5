@@ -1,0 +1,1425 @@
+import React, { useState, useRef, useEffect, useLayoutEffect, ChangeEvent, forwardRef, useImperativeHandle, useContext } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Icon } from '../Icons.tsx';
+import { IconButton } from '../gm3/IconButton.tsx';
+import { Tooltip } from '../gm3/Tooltip.tsx';
+import { MenuButton } from '../gm3/MenuButton.tsx';
+import { Menu, MenuItem } from '../gm3/Menu.tsx';
+import { Button } from '../gm3/Button.tsx';
+import { CircularProgressIndicator } from '../gm3/CircularProgressIndicator.tsx';
+import { ToolboxDrawerIcon, GeminiSparkIcon } from '../../styles/icons/index.ts';
+import PromptThinkingAnimation from '../agentbuilder/PromptThinkingAnimation.tsx';
+import { Chip } from '../gm3/Chip.tsx';
+import { duration, easing } from '../../styles/motion-gm3.ts';
+import { FloatingPromptContext } from '../agent-builder/FloatingPromptContext.tsx';
+import { Output, KnowledgeItem } from '../agent-builder/types.ts';
+import { DisplayTool } from '../agent-builder/properties/useAgenticPanelState.tsx';
+import { AddToAgent, AddToAgentHandle, KnowledgeSourceType } from '../agent-builder/properties/AddToAgent.tsx';
+
+const cn = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(' ');
+
+
+
+const MAX_TEXTAREA_HEIGHT_PX = 168; // approx 7 lines
+
+export interface Attachment {
+    id: number;
+    file: File;
+    previewUrl?: string; // for images or video src
+    posterUrl?: string; // for video poster
+}
+
+const getFileTypeLabel = (file: File) => {
+    const type = file.type;
+    if (type === 'application/pdf') return 'PDF';
+    const extension = file.name.split('.').pop()?.toUpperCase();
+    return extension || 'File';
+}
+
+const getFileIcon = (file: File) => {
+    const type = file.type;
+    if (type === 'application/pdf') return 'picture_as_pdf';
+    return 'draft';
+}
+
+const BananaIcon = () => (
+    <svg width="20" height="20" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" transform="scale(-1, 1)">
+        <path d="M119.22 95.12c-1.14 2.36-5.91 2.21-8.54 1.38c-6.72-2.12-10.9-7.9-10.9-7.9L65.14 73.9l-10.61-5.57s-2.06-3.5 2.06-6.17s7.01-2.87 7.01-2.87l11.94 7.6s7.71-6 15.54-6.91c7.48-.86 16.79 5.22 19.24 16.7c1.99 9.31 5.14 12.59 6.09 13.8c.95 1.22 3.79 2.62 2.81 4.64z" fill="#ff8e00"></path>
+        <path d="M77.72 32.15C74.65 21.99 70.77 10.1 64.91 6.03c-5.19-3.6-10.24-2.95-12.64-1.38c0 0-4.33 1.77-5.47 6.24c-1.88 7.34.59 16.15 2.2 25.25c1.61 9.1 2.45 15.36 3.18 22.67c.07.66 12.16 22.18 12.16 22.18l9.65 5.17s7.37-15.94 7.26-18.19c-.1-2.26-1.29-28.4-3.53-35.82z" fill="#ffe4b4"></path>
+        <path d="M52.55 66.94c-.13 2.43 5.73 21.8 5.73 21.8L74 86.14s11.15-6.6 11.46-18.57c.48-18.05-2.61-26.55-4.85-33.97c-3.08-10.14-9.94-23.5-15.75-27.64c-3.41-2.43-7.19-2.79-8.74-2.49c0 0 10.32 8.08 15.54 21.9s6.45 29.79 6.45 29.79s-3.84 2.83-12.9 4.13c-7 1.01-13.04-.7-13.04-.7s.55 5.27.38 8.35z" fill="#ffe265"></path>
+        <path d="M85.33 83.75l-6.29-13.14l.34-4.68s1.34-3.93-7.03 2.42c-3.88 2.94-6.22 8.36-6.22 8.36s-1.18-2.92-5.32-6.78c-3.68-3.42-8.63-5.08-8.63-5.08s-10.28-2-11.4-1.13c-7.25 5.66-12.55 12.55-12.55 12.55L22.9 96.42l-8.86 5.43s2.42 3.54 5.92 2.22c2.73-1.03 6.11-4.12 7.93-8.01c2.5-5.35 7.75-15.47 10.42-18.67c5.16-6.16 10.22-8.41 13.99-6.62c4.29 2.03.86 22.29.86 22.29l-27.58 23.21l-.47 3.16s4.01 3.85 15.06 3.49s25.83-4.45 35.18-17.2c8.25-11.24 9.98-21.97 9.98-21.97z" fill="#ffa726"></path>
+        <path d="M63.58 84.96c.24 5.55-3.22 13.96-11.22 20.97c-7.99 7.01-16.43 9.33-21.67 9.73c-3.8.29-4.93-1.88-4.93-1.88s7.66-7.05 13.35-12.7c5.4-5.37 11.28-16.65 12.56-21.84c1.28-5.19.12-8.68.12-8.68s2.48.69 6.13 4.35c3.54 3.55 5.53 6.97 5.66 10.05z" fill="#ffb803"></path>
+        <path d="M29.45 118.74c-.83 1.93-3.68 2.01-4.92.94c-1.17-1.01-2.31-3.02-1.13-5.27c.78-1.48 3.34-1.89 4.78-.74s2.02 3.32 1.27 5.07z" fill="#875b54"></path>
+        <path d="M23.76 97.84c-3.28 4.55-6.57 5.24-7.93 5.39c-1.19.14-2.49-1.38-2.34-2.78c.15-1.4 2.45-3.37 2.73-7.67c.28-4.3-.06-20.07 8.69-29.13c6.17-6.38 13.73-4.18 18.61-2.49c5.5 1.9 8.67 3.7 8.67 3.7s-4.5-.31-12.26 5.81c-4.51 3.56-7.16 8.45-9.66 14.06c-1.8 4.06-4.2 9.91-6.51 13.11z" fill="#fee4b4"></path>
+        <path d="M111 109.58c-.92 1.84-3.17 2.98-5.16 2.89c-4.21-.18-8.05-2.35-12.3-7.83c-6.01-7.76-11.24-26.38-15.16-31.34c-2.65-3.35-5.95-5.01-5.95-5.01s1.82-1.54 3.64-2.49c1.82-.95 6.22-.5 6.22-.5l18.78 30.18l9.93 14.1z" fill="#feb804"></path>
+        <path d="M100.39 68.46c4.12 5.89 4.66 11.06 5.28 16.34c.56 4.77 1.71 14.8 3.44 18.07c1.74 3.27 3.43 5.4 1.56 7.39s-7.37 1.28-11.32-3.02c-3.18-3.47-4.94-7.25-7.33-12.8c-2.39-5.55-5.91-18.65-10.48-24.57c-2.92-3.78-5.83-3.89-5.83-3.89s3.85-3.14 11.2-3.22c6.59-.07 10.05.8 13.48 5.7z" fill="#ffe4b4"></path>
+    </svg>
+);
+
+const SHOW_SECURITY_ICON = false; // Set to true to recover the shield icon in the NL input field placeholder
+
+// Chip Helpers (from RichTextField)
+const getChipLogo = (label: string, type?: string, id?: string) => {
+    if (!label || typeof label !== 'string') {
+        return `<span class="material-symbols-outlined text-[12px] leading-none filled-icon text-[#444746]">data_object</span>`;
+    }
+
+    const lower = label.toLowerCase();
+    const lowerId = id?.toLowerCase() || '';
+
+    if (lowerId === 'code-execution' || lower === 'code execution') {
+        return `<span class="material-symbols-outlined text-[14px] leading-none filled-icon text-[#444746]">code</span>`;
+    }
+    if (lowerId === 'google-maps' || lower === 'google maps') {
+        return `<svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.51333 4.74665L4.16333 2.77332C3.43667 3.63665 3 4.74998 3 5.96665C3 6.90332 3.19 7.65998 3.5 8.33998L6.47667 4.78998C6.49 4.77998 6.50333 4.76331 6.51333 4.74665Z" fill="#EA4335"/>
+            <path d="M7.97 1C6.44 1 5.07666 1.69 4.16333 2.77667L6.51333 4.75C6.52 4.74333 6.52666 4.73333 6.53666 4.72667L9.46666 1.23333C8.99333 1.08333 8.49333 1 7.97 1Z" fill="#1A73E8"/>
+            <path d="M9.43664 7.16998L12.3733 3.66998C11.77 2.51665 10.7266 1.62998 9.46664 1.22998L6.51331 4.74665C6.85997 4.32998 7.38331 4.06331 7.96997 4.06331C9.01664 4.06331 9.86664 4.91331 9.86664 5.95998C9.86664 6.42331 9.70664 6.84331 9.43664 7.16998Z" fill="#4285F4"/>
+            <path d="M3.5 8.34335C4.02 9.48335 4.88 10.3967 5.76667 11.5433L9.42 7.19002C9.07333 7.60335 8.55 7.86668 7.97 7.86668C6.92333 7.86668 6.07333 7.01668 6.07333 5.97002C6.07333 5.52335 6.23 5.11002 6.49 4.78668L3.5 8.34335Z" fill="#FBBC04"/>
+            <path d="M12.9401 5.96998C12.9401 5.13998 12.7367 4.35665 12.3734 3.66998L9.44006 7.16332C9.43339 7.16998 9.42672 7.17665 9.42339 7.18332L5.76672 11.5433C6.05339 11.9167 6.34339 12.3133 6.62672 12.75C7.63339 14.31 7.33339 15.2433 7.97006 15.2433C8.62339 15.2433 8.33339 14.31 9.34006 12.75C11.0067 10.1633 12.9401 8.98332 12.9401 5.96998Z" fill="#34A853"/>
+        </svg>`;
+    }
+    if (lowerId === 'youtube' || lower === 'youtube') {
+        return `<svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M15.6733 3.74886C15.4893 3.06054 14.9469 2.51828 14.2582 2.33428C13.0098 2 8.00389 2 8.00389 2C8.00389 2 2.99813 2 1.74976 2.33428C1.061 2.51828 0.518641 3.06054 0.33456 3.74886C0 4.99682 0 7.60021 0 7.60021C0 7.60021 0 10.2037 0.33456 11.4516C0.518641 12.1399 1.061 12.6823 1.74976 12.8661C2.99813 13.2006 8.00389 13.2006 8.00389 13.2006C8.00389 13.2006 13.0098 13.2006 14.2582 12.8661C14.9469 12.6823 15.4893 12.1399 15.6733 11.4516C16.0079 10.2037 16.0079 7.60021 16.0079 7.60021C16.0079 7.60021 16.0079 4.99682 15.6733 3.74886" fill="#FF0000"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M6.40308 10.0004L10.5618 7.60037L6.40308 5.20007V10.0004" fill="white"/>
+        </svg>`;
+    }
+
+    if (lower.includes('google') || lower.includes('search')) {
+        return `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.76 6.13636C11.76 5.72045 11.7232 5.32091 11.655 4.93636H6V7.2H9.23182C9.09273 7.95 8.66727 8.58545 8.03182 9.01091V10.53h1.94455C11.1273 9.44455 11.76 7.94182 11.76 6.13636Z" fill="#4285F4"/>
+            <path d="M6 12C7.62 12 8.97818 11.4627 9.97636 10.53L8.03182 9.01091C7.49182 9.37091 6.80727 9.59182 6 9.59182C4.43182 9.59182 3.10364 8.53364 2.62909 7.11H0.621818v1.55455C1.61455 10.6418 3.64091 12 6 12Z" fill="#34A853"/>
+            <path d="M2.62909 7.11C2.50636 6.74182 2.43545 6.35182 2.43545 5.94545C2.43545 5.53909 2.50636 5.14909 2.62909 4.78091V3.22636H0.621818C0.223636 4.01727 0 4.90364 0 5.83636C0 6.76909 0.223636 7.65545 0.621818 8.44636L2.62909 7.11Z" fill="#FBBC04"/>
+            <path d="M6 2.40818C6.88091 2.40818 7.67182 2.70818 8.29364 3.30273L10.02 1.57636C8.97545 0.602727 7.61727 0 6 0C3.64091 0 1.61455 1.35818 0.621818 3.22636L2.62909 4.78091C3.10364 3.35727 4.43182 2.40818 6 2.40818Z" fill="#EA4335"/>
+        </svg>`;
+    }
+
+    if (type) {
+        switch (type) {
+            case 'agent':
+                return `<span class="material-symbols-outlined text-[16px] leading-none filled-icon text-primary">rocket_launch</span>`;
+            case 'file':
+            case 'pdf':
+            case 'drive':
+            case 'doc':
+            case 'box':
+            case 'sharepoint':
+                if (lower.endsWith('.pdf')) return `<span class="material-symbols-outlined text-[14px] leading-none filled-icon text-[#EA4335]">picture_as_pdf</span>`;
+                if (lower.includes('sheet') || lower.endsWith('.csv')) return `<span class="material-symbols-outlined text-[14px] leading-none filled-icon text-[#34A853]">table_view</span>`;
+                return `<span class="material-symbols-outlined text-[14px] leading-none filled-icon text-[#444746]">draft</span>`;
+            case 'action':
+                return `<span class="material-symbols-outlined text-[16px] leading-none filled-icon text-secondary">bolt</span>`;
+            case 'condition':
+                return `<span class="material-symbols-outlined text-[16px] leading-none filled-icon text-tertiary scale-x-[-1] scale-y-[-1]">alt_route</span>`;
+            case 'tool':
+                return `<span class="material-symbols-outlined text-[16px] leading-none filled-icon text-secondary">bolt</span>`;
+            default:
+                break;
+        }
+    }
+
+    return `<span class="material-symbols-outlined text-[14px] leading-none filled-icon text-[#444746]">data_object</span>`;
+};
+
+const CHIP_CLASS_DEFAULT = "inline-flex items-center h-[24px] pl-[6px] pr-[2px] py-[2px] gap-[4px] bg-white border border-outline-variant/50 rounded-[24px] text-[12px] font-medium text-[#1F1F1F] align-middle mx-0.5 select-none my-0.5 cursor-default w-fit max-w-full whitespace-nowrap overflow-hidden transition-colors hover:bg-surface-container";
+const CHIP_CLASS_SURFACE_LARGE = "inline-flex items-center h-[32px] pl-[5px] pr-1 py-[2px] gap-[4px] bg-surface-container-high rounded-[24px] label-large text-on-surface align-middle mx-0.5 select-none my-0.5 cursor-default w-fit max-w-full whitespace-nowrap overflow-hidden transition-colors hover:bg-surface-container-highest";
+
+const CHIP_REMOVE_SVG = `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.35 13L4.5 12.15L7.65 9L4.5 5.85L5.35 5L8.5 8.15L11.65 5L12.5 5.85L9.35 9L12.5 12.15L11.65 13L8.5 9.85L5.35 13Z" fill="currentColor"/></svg>`;
+
+const createChipElement = (label: string, dataAttrs: Record<string, string>, type?: string, chipClass: string = CHIP_CLASS_DEFAULT) => {
+    const chip = document.createElement('span');
+    chip.className = chipClass;
+    chip.contentEditable = "false";
+    Object.entries(dataAttrs).forEach(([k, v]) => chip.setAttribute(k, v));
+
+    const isLarge = chipClass.includes('h-[32px]');
+
+    const logo = getChipLogo(label, type, dataAttrs['data-mention-id']);
+    const logoSpan = document.createElement('span');
+    logoSpan.className = isLarge ? "flex items-center justify-center w-[20px] h-[20px] shrink-0" : "flex items-center justify-center w-[16px] h-[16px] shrink-0";
+    logoSpan.innerHTML = logo;
+
+    const textSpan = document.createElement('span');
+    textSpan.className = isLarge ? "flex items-center leading-[20px] truncate min-w-0" : "flex items-center leading-none truncate min-w-0";
+    textSpan.style.overflow = "hidden";
+    textSpan.style.textOverflow = "ellipsis";
+    textSpan.style.whiteSpace = "nowrap";
+    textSpan.textContent = label;
+
+    const closeFrame = document.createElement('span');
+    closeFrame.className = cn(
+        "rich-chip-remove flex items-center justify-center shrink-0 cursor-pointer hover:bg-black/5 rounded-full transition-colors",
+        isLarge ? "w-[24px] h-[24px]" : "w-[17px] h-[17px]"
+    );
+    closeFrame.innerHTML = isLarge ? `<span class="material-symbols-outlined !text-[17px] leading-none text-[#4F4F4F]">close</span>` : CHIP_REMOVE_SVG;
+
+    chip.appendChild(logoSpan);
+    chip.appendChild(textSpan);
+    chip.appendChild(closeFrame);
+
+    return chip;
+};
+
+const formatTextToHtml = (text: string, outputs: Output[], chipClass: string = CHIP_CLASS_DEFAULT) => {
+    if (!text) return '';
+
+    const isLarge = chipClass.includes('h-[32px]');
+    const logoSize = isLarge ? "w-[20px] h-[20px]" : "w-[12px] h-[12px]";
+    const textLeading = isLarge ? "leading-[20px]" : "leading-none";
+    const closeBtnClass = isLarge ? "w-[24px] h-[24px]" : "w-[17px] h-[17px]";
+    const closeBtnContent = isLarge ? `<span class="material-symbols-outlined !text-[17px] leading-none text-[#4F4F4F]">close</span>` : CHIP_REMOVE_SVG;
+
+    return text.replace(/\{\{([^}]+)\}\}/g, (match, content) => {
+        if (content.startsWith('mention:')) {
+            const parts = content.split(':');
+            if (parts.length >= 4) {
+                const [_, type, id, ...labelParts] = parts;
+                const label = labelParts.join(':');
+                const logo = getChipLogo(label, type, id);
+                return `<span class="${chipClass}" contenteditable="false" data-value="${match}" data-mention-id="${id}" data-mention-type="${type}"><span class="flex items-center justify-center ${logoSize} shrink-0">${logo}</span><span class="flex items-center ${textLeading} truncate min-w-0" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${label}</span><span class="rich-chip-remove flex items-center justify-center ${closeBtnClass} shrink-0 cursor-pointer hover:bg-black/5 rounded-full transition-colors">${closeBtnContent}</span></span>`;
+            }
+        }
+
+        const v = outputs.find(v => v.value === match);
+        const displayContent = v ? (v.source ? `${v.source}: ${v.label}` : v.label) : content;
+        const logo = getChipLogo(displayContent);
+        return `<span class="${chipClass}" contenteditable="false" data-value="${match}"><span class="flex items-center justify-center ${logoSize} shrink-0">${logo}</span><span class="flex items-center ${textLeading} truncate min-w-0" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${displayContent}</span><span class="rich-chip-remove flex items-center justify-center ${closeBtnClass} shrink-0 cursor-pointer hover:bg-black/5 rounded-full transition-colors">${closeBtnContent}</span></span>`;
+    });
+};
+
+const getValueFromEditor = (editor: HTMLElement) => {
+    const clone = editor.cloneNode(true) as HTMLElement;
+    const chips = clone.querySelectorAll('span[data-value]');
+    chips.forEach(chip => {
+        const val = chip.getAttribute('data-value');
+        if (val) {
+            const textNode = document.createTextNode(val);
+            chip.parentNode?.replaceChild(textNode, chip);
+        }
+    });
+    return clone.innerText;
+};
+
+export const PromptInput = forwardRef((props: {
+    onSubmit?: (prompt: string, attachments: Attachment[], mode: string | null, metadata?: any) => void;
+    onImportCodeClick?: () => void;
+    loading?: boolean;
+    onCancel?: () => void;
+    variant?: 'standard' | 'single-line' | 'mini' | 'mini-embedded' | 'hero' | 'embedded';
+    appearance?: 'default' | 'on-surface';
+    className?: string;
+    hideTools?: boolean;
+    hideModelPicker?: boolean;
+    placeholder?: string;
+    elevation?: 'default' | 'prominent';
+    populateTextOnUpArrow?: string | string[];
+    onFocus?: () => void;
+    onBlur?: () => void;
+    onPromptChange?: (value: string) => void;
+    flatTop?: boolean;
+    thinkingVariant?: 'standard' | 'animated';
+    thinkingText?: string;
+    autoFocus?: boolean;
+    onKeyDown?: (e: React.KeyboardEvent) => void;
+    submissionMetadata?: any;
+    /** @deprecated Use chipLabel instead */
+    startChipLabel?: string;
+    /** @deprecated Use chipIcon instead */
+    startChipIcon?: React.ReactNode | string;
+    /** @deprecated Use onChipRemove instead */
+    onStartChipRemove?: () => void;
+    chipLabel?: string;
+    chipIcon?: React.ReactNode | string;
+    onChipRemove?: () => void;
+    chipVariant?: 'leading' | 'trailing';
+    value?: string;
+    minHeight?: number;
+    forceGradientOutline?: boolean;
+    // Embedded variant support
+    outputs?: Output[];
+    knowledge?: KnowledgeItem[];
+    allTools?: DisplayTool[];
+    onAddTool?: (tool: DisplayTool) => void;
+    onAddToolClick?: () => void;
+    onAddKnowledge?: (type: KnowledgeSourceType) => void;
+    onAddExistingKnowledge?: (item: KnowledgeItem) => void;
+    nodeNumbers?: Record<string, number>;
+    multilinePlaceholder?: boolean;
+}, ref: React.Ref<any>) => {
+    const {
+        onSubmit,
+        onImportCodeClick,
+        loading,
+        onCancel,
+        variant = 'standard',
+        appearance = 'default',
+        className,
+        hideTools: hideToolsProp,
+        hideModelPicker: hideModelPickerProp,
+        placeholder,
+        elevation = 'default',
+        populateTextOnUpArrow,
+        onFocus,
+        onBlur,
+        onPromptChange,
+        flatTop = false,
+        thinkingVariant = 'standard',
+        thinkingText,
+        autoFocus,
+        onKeyDown,
+        submissionMetadata,
+        startChipLabel,
+        startChipIcon,
+        onStartChipRemove,
+        chipLabel: chipLabelProp,
+        chipIcon: chipIconProp,
+        onChipRemove: onChipRemoveProp,
+        chipVariant = 'leading',
+        value,
+        minHeight,
+        forceGradientOutline,
+        outputs = [],
+        knowledge = [],
+        allTools = [],
+        onAddTool,
+        onAddToolClick,
+        onAddKnowledge,
+        onAddExistingKnowledge,
+        nodeNumbers = {},
+        multilinePlaceholder = false,
+    } = props;
+
+    // Standardize chip props
+    const chipLabel = chipLabelProp || startChipLabel;
+    const chipIcon = chipIconProp || startChipIcon;
+    const onChipRemove = onChipRemoveProp || onStartChipRemove;
+
+    const [internalPrompt, setInternalPrompt] = useState('');
+    const prompt = value !== undefined ? value : internalPrompt;
+    const setPrompt = (val: string) => {
+        setInternalPrompt(val);
+        onPromptChange?.(val);
+    };
+    const [selectedMode, setSelectedMode] = useState<string | null>(null);
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [showExpandButton, setShowExpandButton] = useState(false);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const editorRef = useRef<HTMLDivElement>(null);
+    const addToAgentRef = useRef<AddToAgentHandle>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
+    const [addMenuAnchor, setAddMenuAnchor] = useState<HTMLElement | null>(null);
+    const [toolsMenuAnchor, setToolsMenuAnchor] = useState<HTMLElement | null>(null);
+    // modelMenuAnchor state removed (handled by MenuButton)
+
+    const [selectedModel, setSelectedModel] = useState('fast');
+    const rootRef = useRef<HTMLDivElement>(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+    const [attachments, setAttachments] = useState<Attachment[]>([]);
+
+    const isTrailingChipActive = !!chipLabel && chipVariant === 'trailing' && prompt !== '' && (!loading || !thinkingText);
+
+    const context = useContext(FloatingPromptContext);
+
+    // Register with FloatingPromptContext
+    useEffect(() => {
+        if (variant === 'standard' || variant === 'single-line') {
+            if (context) {
+                context.registerMainInput({
+                    onSubmit: (prompt, metadata) => {
+                        onSubmit?.(prompt, [], selectedMode, metadata);
+                    },
+                    setIsThinking: (thinking) => {
+                        // The thinking state is controlled via the 'loading' prop in this component
+                        // However, we don't have a way to force a re-render from here 
+                        // unless we had a local loading state. 
+                        // But AgentEditorView manages 'loading' via 'isThinking' prop.
+                    }
+                });
+                return () => context.unregisterMainInput();
+            }
+        }
+    }, [variant, context, onSubmit, selectedMode]);
+
+
+
+    const models = [
+        { id: 'fast', label: 'Fast', fullLabel: 'Fast', description: 'Answers quickly', badge: 'New' },
+        { id: 'pro', label: 'Pro', fullLabel: 'Pro', description: 'Thinks longer for advanced math & code' },
+    ];
+
+    const currentModel = models.find(m => m.id === selectedModel) || models[0];
+
+    const isSingleLine = variant === 'single-line';
+
+    const modes = [
+        { id: 'Deep Research', icon: 'travel_explore', label: 'Deep Research' },
+        { id: 'Video', icon: 'movie', label: 'Create videos (Veo 3.1)' },
+        { id: 'Image', icon: 'banana', label: 'Create images' },
+        { id: 'Canvas', icon: 'note_stack_add', label: 'Canvas' },
+        { id: 'Guided Learning', icon: 'auto_stories', label: 'Guided Learning' },
+        { id: 'Visual Layout', icon: 'view_quilt', label: 'Visual layout', badge: 'Labs' },
+    ];
+    
+    const [containerHeight, setContainerHeight] = useState<number | string>(
+        minHeight ?? (variant === 'single-line' ? 68 : (variant === 'standard' ? 118 : 'auto'))
+    );
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    // Embedded variant interaction state
+    const [isFocused, setIsFocused] = useState(false);
+    const [isEmpty, setIsEmpty] = useState(true);
+    const mentionRangeRef = useRef<Range | null>(null);
+    const mentionVirtualAnchorRef = useRef<HTMLSpanElement | null>(null);
+    const isInternalChange = useRef(false);
+    const isEmbeddedVariant = variant === 'embedded';
+    const activeChipClass = isEmbeddedVariant ? CHIP_CLASS_SURFACE_LARGE : CHIP_CLASS_DEFAULT;
+
+    useEffect(() => {
+        if (editorRef.current && !isInternalChange.current && variant === 'embedded') {
+            const val = prompt;
+
+            // If focused, only update if the text content actually changed to avoid losing cursor
+            if (isFocused || mentionRangeRef.current || mentionVirtualAnchorRef.current) {
+                const currentText = getValueFromEditor(editorRef.current);
+                if (val === currentText) return;
+            }
+
+            const currentHTML = editorRef.current.innerHTML;
+            const targetHTML = formatTextToHtml(val, outputs, activeChipClass);
+
+            if (currentHTML !== targetHTML) {
+                const currentText = getValueFromEditor(editorRef.current);
+                if (val !== currentText || !currentHTML.includes('data-value')) {
+                    editorRef.current.innerHTML = targetHTML;
+                }
+            }
+
+            const isEmptyText = !val || val.trim() === '' || val === '\n';
+            setIsEmpty(isEmptyText);
+        }
+    }, [prompt, outputs, isFocused, variant, activeChipClass]);
+
+    const handleInput = () => {
+        if (variant === 'embedded' && editorRef.current) {
+            isInternalChange.current = true;
+            const text = getValueFromEditor(editorRef.current);
+            const isEmptyText = !text || text.trim() === '' || text === '\n';
+            setIsEmpty(isEmptyText);
+            setPrompt(text);
+
+            const selection = window.getSelection();
+            if (selection && selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                const node = range.startContainer;
+                if (node.nodeType === Node.TEXT_NODE && node.textContent) {
+                    const textBefore = node.textContent.slice(0, range.startOffset);
+                    const atMatch = textBefore.match(/@(\w*)$/);
+                    if (atMatch) {
+                        const searchQuery = atMatch[1];
+                        mentionRangeRef.current = range.cloneRange();
+
+                        if (mentionVirtualAnchorRef.current) mentionVirtualAnchorRef.current.remove();
+                        const span = document.createElement('span');
+                        span.style.display = 'inline-block';
+                        span.style.width = '0';
+                        span.style.height = '0';
+                        span.style.lineHeight = '0';
+                        range.insertNode(span);
+                        mentionVirtualAnchorRef.current = span;
+
+                        if (addToAgentRef.current) {
+                            addToAgentRef.current.open(span, searchQuery);
+                        }
+                    }
+                }
+            }
+
+            setTimeout(() => { isInternalChange.current = false; }, 0);
+        } else if (textareaRef.current) {
+            setPrompt(textareaRef.current.value);
+        }
+    };
+
+    const handleEditorClick = (e: React.MouseEvent) => {
+        const target = e.target as HTMLElement;
+        const removeBtn = target.closest('.rich-chip-remove');
+        if (removeBtn) {
+            e.stopPropagation();
+            const chip = removeBtn.closest('[data-value]');
+            if (chip) {
+                chip.remove();
+                handleInput();
+            }
+        }
+    };
+
+    const insertMention = (mention: { type: string; id: string; label: string }) => {
+        let range: Range | null = null;
+        const sel = window.getSelection();
+
+        if (mentionRangeRef.current && editorRef.current?.contains(mentionRangeRef.current.commonAncestorContainer)) {
+            range = mentionRangeRef.current;
+            if (sel) {
+                sel.removeAllRanges();
+                sel.addRange(range);
+            }
+        } else {
+            editorRef.current?.focus();
+            const newSel = window.getSelection();
+            if (newSel && editorRef.current) {
+                range = document.createRange();
+                range.selectNodeContents(editorRef.current);
+                range.collapse(false);
+                newSel.removeAllRanges();
+                newSel.addRange(range);
+            }
+        }
+
+        if (!range || !sel) return;
+
+        const node = range.startContainer;
+        if (mentionVirtualAnchorRef.current) {
+            mentionVirtualAnchorRef.current.remove();
+            mentionVirtualAnchorRef.current = null;
+        }
+
+        if (node.nodeType === Node.TEXT_NODE && node.textContent) {
+            const textBefore = node.textContent.slice(0, range.startOffset);
+            const atMatch = textBefore.match(/@(\w*)$/);
+            if (atMatch) {
+                const matchLength = atMatch[0].length;
+                const offset = range.startOffset;
+                range.setStart(node, offset - matchLength);
+                range.setEnd(node, offset);
+                range.deleteContents();
+            }
+        }
+
+        const serializedValue = `{{mention:${mention.type}:${mention.id}:${mention.label}}}`;
+        const chip = createChipElement(mention.label, {
+            'data-value': serializedValue,
+            'data-mention-id': mention.id,
+            'data-mention-type': mention.type
+        }, mention.type, activeChipClass);
+
+        range.insertNode(chip);
+        const space = document.createTextNode('\u00A0');
+        range.setStartAfter(chip);
+        range.setEndAfter(chip);
+        range.insertNode(space);
+        range.setStartAfter(space);
+        range.setEndAfter(space);
+        sel.removeAllRanges();
+        sel.addRange(range);
+
+        handleInput();
+        mentionRangeRef.current = null;
+    };
+
+    const insertOutput = (output: Output) => {
+        let range: Range | null = null;
+        const sel = window.getSelection();
+
+        if (sel?.rangeCount && editorRef.current?.contains(sel.getRangeAt(0).commonAncestorContainer)) {
+            range = sel.getRangeAt(0);
+        } else {
+            editorRef.current?.focus();
+            const newSel = window.getSelection();
+            if (newSel && editorRef.current) {
+                range = document.createRange();
+                range.selectNodeContents(editorRef.current);
+                range.collapse(false);
+                newSel.removeAllRanges();
+                newSel.addRange(range);
+            }
+        }
+
+        if (!range || !sel) return;
+
+        const node = range.startContainer;
+        if (node.nodeType === Node.TEXT_NODE && node.textContent) {
+            const textBefore = node.textContent.slice(0, range.startOffset);
+            const atMatch = textBefore.match(/@(\w*)$/);
+            if (atMatch) {
+                const matchLength = atMatch[0].length;
+                const offset = range.startOffset;
+                range.setStart(node, offset - matchLength);
+                range.setEnd(node, offset);
+                range.deleteContents();
+            }
+        }
+
+        const displayLabel = output.source ? `${output.source}: ${output.label}` : output.label;
+        const chip = createChipElement(displayLabel, {
+            'data-value': output.value
+        }, undefined, activeChipClass);
+
+        range.insertNode(chip);
+        const space = document.createTextNode('\u00A0');
+        range.setStartAfter(chip);
+        range.setEndAfter(chip);
+        range.insertNode(space);
+        range.setStartAfter(space);
+        range.setEndAfter(space);
+        sel.removeAllRanges();
+        sel.addRange(range);
+
+        handleInput();
+    };
+
+    const handleAddClick = (e: React.MouseEvent<HTMLElement>) => {
+        if (variant === 'embedded') {
+            if (addToAgentRef.current) {
+                addToAgentRef.current.open(e.currentTarget);
+            }
+        } else {
+            setAddMenuAnchor(e.currentTarget);
+        }
+    };
+
+    useEffect(() => {
+        // Small delay to ensure initial paint is complete before enabling transitions
+        const timer = setTimeout(() => {
+            setIsMounted(true);
+        }, 100);
+        return () => clearTimeout(timer);
+    }, []);
+
+
+    useEffect(() => {
+        onPromptChange?.(prompt);
+    }, [prompt, onPromptChange]);
+
+    useImperativeHandle(ref, () => ({
+        focus: () => {
+            if (variant === 'embedded') {
+                editorRef.current?.focus();
+            } else {
+                textareaRef.current?.focus();
+            }
+        },
+        insertChip: (label: string, value: string, type?: string) => {
+            if (variant === 'embedded') {
+                insertOutput({ label, value, type } as any);
+            }
+        }
+    }));
+
+    // Maintain focus after thinking state ends
+    const prevLoading = useRef(loading);
+    useEffect(() => {
+        if (prevLoading.current && !loading) {
+            if (textareaRef.current) textareaRef.current.focus();
+            if (inputRef.current) inputRef.current.focus();
+        }
+        prevLoading.current = loading;
+    }, [loading]);
+
+    // Explicit autofocus effect (useful for components inside menus/portals)
+    useEffect(() => {
+        if (autoFocus) {
+            // Use a tiny timeout to ensure it happens after any menu animations or focus traps
+            const timer = setTimeout(() => {
+                if (textareaRef.current) textareaRef.current.focus();
+                if (inputRef.current) inputRef.current.focus();
+            }, 50);
+            return () => clearTimeout(timer);
+        }
+    }, [autoFocus]);
+
+    // Auto-grow and expand button logic with height tracking
+    const updateHeight = () => {
+        const textarea = textareaRef.current;
+        const root = rootRef.current;
+        if (textarea && root) {
+            const isAutoHeight = textarea.style.height === 'auto';
+            if (!isAutoHeight) {
+                textarea.style.height = 'auto';
+            }
+            const scrollHeight = textarea.scrollHeight;
+            
+            const computedStyle = getComputedStyle(textarea);
+            const lineHeight = parseFloat(computedStyle.lineHeight) || 24;
+            const paddingTop = parseFloat(computedStyle.paddingTop) || 1;
+            const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
+            const contentHeight = scrollHeight - paddingTop - paddingBottom;
+            const lines = prompt === '' ? 0 : Math.round(contentHeight / lineHeight);
+
+            const shouldShowButtonBasedOnLines = lines >= 3;
+
+            if (scrollHeight > MAX_TEXTAREA_HEIGHT_PX) {
+                textarea.style.height = `${MAX_TEXTAREA_HEIGHT_PX}px`;
+                setShowExpandButton(true);
+            } else {
+                textarea.style.height = `${scrollHeight}px`;
+                setShowExpandButton(shouldShowButtonBasedOnLines);
+            }
+
+            // Explicitly set container height for transitions
+            const isEmpty = !prompt && attachments.length === 0 && !loading;
+
+            if (isSingleLine && attachments.length === 0) {
+                const currentHeight = parseFloat(textarea.style.height) || scrollHeight;
+                const overhead = isTrailingChipActive ? 87 : 42;
+                setContainerHeight(Math.max(68, currentHeight + overhead));
+            } else if (isExpanded) {
+                setContainerHeight('80vh');
+            } else if (isEmpty) {
+                // Force default height to avoid measurement jitters when empty
+                setContainerHeight(minHeight ?? (isSingleLine ? 68 : 118));
+            } else {
+                const h = root.scrollHeight;
+                if (h > 0) {
+                    setContainerHeight(minHeight ? Math.max(h, minHeight) : h);
+                }
+            }
+        }
+    };
+
+    // Use ResizeObserver to catch width changes (e.g. during animation)
+    useEffect(() => {
+        const root = rootRef.current;
+        if (!root) return;
+
+        const observer = new ResizeObserver(() => {
+            // Request animation frame to avoid "ResizeObserver loop limit exceeded"
+            requestAnimationFrame(() => {
+                updateHeight();
+            });
+        });
+
+        observer.observe(root);
+        return () => observer.disconnect();
+    }, [prompt, isSingleLine, isExpanded, attachments.length]);
+
+    useEffect(() => {
+        updateHeight();
+    }, [prompt, isSingleLine, isExpanded, attachments.length]);
+
+    const handleSend = () => {
+        if ((!prompt.trim() && attachments.length === 0) || loading) return;
+
+        if ((variant === 'mini' || variant === 'mini-embedded') && context) {
+            context.submitToMain(prompt, submissionMetadata);
+            setPrompt('');
+            // Ensure any local onSubmit handlers (like closing a menu) are still called
+            onSubmit?.(prompt, [], null, submissionMetadata);
+        } else {
+            onSubmit?.(prompt, attachments, selectedMode, submissionMetadata);
+            setPrompt('');
+            setAttachments([]);
+            setIsExpanded(false);
+        }
+    };
+    
+    const handleKeyDownInternal = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        onKeyDown?.(e);
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            if (loading) {
+                onCancel?.();
+            } else {
+                handleSend();
+            }
+        }
+        if (e.key === 'ArrowUp' && populateTextOnUpArrow) {
+            const prompts = Array.isArray(populateTextOnUpArrow) ? populateTextOnUpArrow : [populateTextOnUpArrow];
+            if (prompts.length > 0) {
+                const currentIndex = prompts.indexOf(prompt);
+                if (prompt === '') {
+                    e.preventDefault();
+                    setPrompt(prompts[0]);
+                } else if (currentIndex !== -1) {
+                    e.preventDefault();
+                    const nextIndex = (currentIndex + 1) % prompts.length;
+                    setPrompt(prompts[nextIndex]);
+                }
+            }
+        }
+    };
+
+    const handleModeClick = (modeId: string) => {
+        setSelectedMode(current => (current === modeId ? null : modeId));
+        setToolsMenuAnchor(null); // Close menu
+    };
+    
+    const handleImportClick = () => {
+        setAddMenuAnchor(null);
+        onImportCodeClick?.();
+    };
+    
+    const handleUploadFileClick = () => {
+        setAddMenuAnchor(null);
+        fileInputRef.current?.click();
+    };
+
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files;
+        if (!files) return;
+
+        (Array.from(files) as File[]).forEach((file, index) => {
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    setAttachments(prev => [
+                        ...prev,
+                        {
+                            id: Date.now() + index,
+                            file: file,
+                            previewUrl: reader.result as string,
+                        },
+                    ]);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                 setAttachments(prev => [
+                    ...prev,
+                    { id: Date.now() + index, file: file },
+                 ]);
+            }
+        });
+
+        if (e.target) e.target.value = '';
+    };
+
+    const handleRemoveAttachment = (idToRemove: number) => {
+        setAttachments(prev => prev.filter(att => att.id !== idToRemove));
+    };
+
+    const [chipWidth, setChipWidth] = useState(0);
+    const chipRef = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        if (!chipRef.current || !chipLabel || chipVariant !== 'leading') {
+            setChipWidth(0);
+            return;
+        }
+
+        const updateWidth = () => {
+            if (chipRef.current) {
+                setChipWidth(chipRef.current.getBoundingClientRect().width);
+            }
+        };
+
+        const observer = new ResizeObserver(updateWidth);
+        observer.observe(chipRef.current);
+        updateWidth();
+
+        return () => observer.disconnect();
+    }, [startChipLabel]);
+
+    // Keep focus after adding an attachment
+    useEffect(() => {
+        if (attachments.length > 0) {
+            if (textareaRef.current) textareaRef.current.focus();
+        }
+    }, [attachments.length]);
+
+
+    // Mini Variant Render
+    if (variant === 'mini' || variant === 'mini-embedded') {
+        const isEmbedded = variant === 'mini-embedded';
+
+        return (
+            <div
+                className={cn(
+                    "relative flex items-center h-10 bg-surface rounded-full cursor-text transition-shadow duration-200 border focus-within:border-primary-500",
+                    "w-full",
+                    isEmbedded ? "border-surface-container-highest" : "border-transparent",
+                    className
+                )}
+                style={{ boxShadow: isEmbedded ? 'none' : 'var(--shadow-elevation-gemini-prominent)' }}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    inputRef.current?.focus();
+                }}
+            >
+                <div className="pl-3 pr-2 text-primary-500 flex-shrink-0">
+                    <GeminiSparkIcon className="w-5 h-5" />
+                </div>
+                <input
+                    ref={inputRef}
+                    type="text"
+                    value={prompt}
+                    onChange={(e) => setPrompt(e.target.value)}
+                    onKeyDown={(e) => {
+                        onKeyDown?.(e);
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleSend();
+                        }
+                    }}
+                    placeholder={placeholder || "Ask Gemini"}
+                    autoFocus={autoFocus}
+                    className="flex-1 w-full bg-transparent border-none outline-none text-body-medium text-on-surface placeholder:text-on-surface-variant/80 h-full"
+                />
+                {prompt.trim() ? (
+                    <IconButton
+                        variant="standard"
+                        size="small"
+                        className="bg-transparent text-[#0B57D0] flex-shrink-0"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleSend();
+                        }}
+                        aria-label="Send"
+                    >
+                        <Icon rounded className="filled-icon" style={{ fontSize: '20px' }}>send</Icon>
+                    </IconButton>
+                ) : (
+                    <IconButton
+                        variant="standard"
+                        size="small"
+                        className="!text-on-surface-variant flex-shrink-0"
+                        aria-label="Use microphone"
+                    >
+                        <Icon rounded className="filled-icon" style={{ fontSize: '20px' }}>mic</Icon>
+                    </IconButton>
+                )}
+            </div>
+        );
+    }
+
+    return (
+        <div
+            ref={rootRef}
+            className={cn(
+                "w-full transition-all flex flex-col relative",
+                appearance === 'on-surface'
+                    ? cn(
+                        'bg-surface-bright transition-shadow border border-transparent',
+                        elevation === 'prominent'
+                            ? '!border-outline-variant/50 shadow-elevation-gemini-prominent'
+                            : 'shadow-elevation-gemini focus-within:shadow-md'
+                    )
+                    : (isSingleLine || variant === 'embedded' || forceGradientOutline
+                        ? cn('bg-surface border border-transparent')
+                        : cn('border border-outline-variant')),
+                loading && thinkingVariant === 'animated' && "!border-transparent",
+                !isExpanded && !isSingleLine && variant !== 'hero' && !multilinePlaceholder && "min-h-[118px]",
+                variant === 'hero' && "min-h-[138px]",
+                multilinePlaceholder && "min-h-0",
+                isSingleLine && "min-h-[68px]",
+                flatTop ? "rounded-t-[4px]" : (isSingleLine ? "rounded-t-[36px]" : "rounded-t-[32px]"),
+                isSingleLine ? "rounded-b-[36px]" : "rounded-b-[32px]",
+                isSingleLine && isTrailingChipActive && "pt-[21px] pb-5",
+                className
+            )}
+            style={{
+                height: typeof containerHeight === 'number' ? `${containerHeight}px` : containerHeight,
+                transitionDuration: `${duration.medium4}ms`,
+                transitionTimingFunction: easing.standard,
+                transitionProperty: isMounted ? 'all' : 'none'
+            }}
+        >
+            {/* Gradient Outline for Single Line Variant */}
+            {(isSingleLine || variant === 'embedded' || forceGradientOutline) && (
+                <div
+                    className={cn(
+                        "absolute -inset-[1px] pointer-events-none z-0 transition-opacity duration-300",
+                        (loading && thinkingVariant === 'animated') ? "opacity-0" : "opacity-100"
+                    )}
+                    style={{
+                        background: 'var(--color-ge-ai-refine)',
+                        padding: '1px',
+                        mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                        maskComposite: 'exclude',
+                        WebkitMaskComposite: 'xor',
+                        borderRadius: flatTop ? "4px 4px 36px 36px" : (isSingleLine || variant === 'embedded' ? "37px" : "33px"),
+                    }}
+                />
+            )}
+
+            <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                hidden
+                multiple
+            />
+
+            {/* Main Content Area */}
+            <div
+                className={cn(
+                    "relative flex-1 flex flex-col transition-opacity duration-300",
+                    isExpanded && "overflow-hidden",
+                    isSingleLine ? "pl-[54px] pr-12" : "pt-[21px] px-4 pb-[61px]",
+                    chipLabel && chipVariant === 'leading' && !isSingleLine && "pt-1",
+                    isSingleLine && isTrailingChipActive && "pt-0"
+                )}
+                style={isSingleLine ? {
+                    paddingRight: '78px',
+                    whiteSpace: 'normal',
+                    height: 'fit-content',
+                    paddingBottom: '0px',
+                    paddingTop: attachments.length > 0 ? '18px' : undefined
+                } : undefined}
+            >
+                 {attachments.length > 0 && (
+                    <div className="pb-2">
+                        <div className="flex flex-wrap gap-2">
+                            {attachments.map(att => (
+                                att.previewUrl ? (
+                                    <div key={att.id} className="relative group">
+                                        <img src={att.previewUrl} alt={att.file.name} className="h-20 w-20 rounded-2xl object-cover" />
+                                        <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <IconButton
+                                                variant="standard"
+                                                size="xsmall"
+                                                className="bg-surface"
+                                                onClick={() => handleRemoveAttachment(att.id)}
+                                                aria-label={`Remove ${att.file.name}`}
+                                            >
+                                                <Icon>close</Icon>
+                                            </IconButton>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <Tooltip key={att.id} content={att.file.name}>
+                                        <div className="relative group h-20 bg-surface-container rounded-2xl p-3 flex items-center gap-3">
+                                                <Icon rounded className="text-4xl text-on-surface-variant">{getFileIcon(att.file)}</Icon>
+                                            <div className="flex flex-col">
+                                                <span className="body-medium text-on-surface-variant w-32 truncate">{att.file.name}</span>
+                                                <span className="body-small text-on-surface-variant">{getFileTypeLabel(att.file)}</span>
+                                            </div>
+                                            <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <IconButton
+                                                    variant="standard"
+                                                    size="xsmall"
+                                                    className="bg-surface"
+                                                    onClick={() => handleRemoveAttachment(att.id)}
+                                                    aria-label={`Remove ${att.file.name}`}
+                                                >
+                                                        <Icon rounded>close</Icon>
+                                                </IconButton>
+                                            </div>
+                                        </div>
+                                    </Tooltip>
+                                )
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {chipLabel && chipVariant === 'trailing' && (prompt !== '' && (!loading || !thinkingText)) && (
+                    <div className={cn("pb-2 pl-2 transition-all duration-300 flex-shrink-0 pt-0")}>
+                        <div className="pointer-events-auto shrink-0 w-fit">
+                            <Chip
+                                label={chipLabel}
+                                leadingIcon={chipIcon ? (typeof chipIcon === 'string' ? <Icon>{chipIcon}</Icon> : chipIcon) : <Icon>spark</Icon>}
+                                onTrailingIconClick={onChipRemove}
+                                trailingIcon={<Icon>close</Icon>}
+                                variant="in-line"
+                                size="large"
+                                highContainer
+                            />
+                        </div>
+                    </div>
+                )}
+
+                <div
+                    className={cn(
+                        "relative flex flex-col",
+                        isSingleLine ? "items-start" : "items-start",
+                        isExpanded && "flex-1 min-h-0"
+                    )}
+                    style={isSingleLine ? {
+                        height: '100%',
+                        paddingBottom: '0px',
+                        paddingRight: '0px',
+                        width: '100%',
+                        alignItems: 'start',
+                        whiteSpace: 'normal',
+                        display: 'flex',
+                        paddingTop: isTrailingChipActive ? '0px' : '12px'
+                    } : undefined}
+                >
+                    <div
+                        className={cn(
+                            "relative flex w-full items-start",
+                            isExpanded && "flex-1 min-h-0"
+                        )}
+                    >
+                        <div
+                            className={cn("relative flex-1", isExpanded ? "flex flex-col" : "flex items-start")}
+                            style={isSingleLine ? { display: 'flex', alignItems: 'start', paddingBottom: '0px', whiteSpace: 'normal', minHeight: '34px' } : undefined}
+                        >
+                            {chipLabel && chipVariant === 'leading' && (
+                                <div ref={chipRef} className={cn("absolute z-10 pointer-events-auto", isSingleLine ? "left-0 top-[7px]" : "left-1 top-[-1px]")}>
+                                    <Chip
+                                        label={chipLabel}
+                                        leadingIcon={chipIcon ? (typeof chipIcon === 'string' ? <Icon>{chipIcon}</Icon> : chipIcon) : <Icon>spark</Icon>}
+                                        onTrailingIconClick={onChipRemove}
+                                        trailingIcon={<Icon>close</Icon>}
+                                        variant="in-line"
+                                        size="large"
+                                        highContainer
+                                    />
+                                </div>
+                            )}
+                            <div className={cn("relative flex-1", isExpanded && "h-full flex flex-col", multilinePlaceholder && "grid")} style={isSingleLine ? { paddingTop: isTrailingChipActive ? '0px' : '5px' } : undefined}>
+                                {(prompt === '' || (loading && thinkingText)) && !isExpanded && (
+                                    <div
+                                        className={cn(
+                                            "flex text-on-surface-variant pointer-events-none transition-opacity duration-300 pl-[2px]",
+                                            multilinePlaceholder ? "relative z-0 row-start-1 col-start-1" : "absolute inset-0",
+                                            (variant === 'hero' || multilinePlaceholder) ? "items-start pt-[6px]" : "items-center",
+                                            chipVariant === 'trailing' && "gap-2"
+                                        )}
+                                        style={{
+                                            paddingLeft: (chipLabel && chipVariant === 'leading') ? `${(chipWidth || 70) + (isSingleLine ? 16 : 11)}px` : '5px',
+                                            marginTop: isSingleLine ? '1px' : '-4px',
+                                            height: (isSingleLine || multilinePlaceholder) ? 'auto' : (variant === 'hero' ? 'auto' : 'auto'),
+                                            paddingRight: multilinePlaceholder ? '40px' : undefined
+                                        }}>
+                                        {SHOW_SECURITY_ICON && (
+                                            <span className={cn(
+                                                "material-symbols-rounded align-middle leading-none transition-opacity duration-300 overflow-hidden w-5 opacity-100 mr-1 text-[20px]",
+                                                (loading && thinkingText) && "hidden"
+                                            )} aria-hidden="true" style={{ margin: '0px 10px 0px 0px' }}>encrypted</span>
+                                        )}
+                                        <span className={cn(
+                                            "body-large leading-normal",
+                                            (variant !== 'hero' && !multilinePlaceholder) && "truncate"
+                                        )}>
+                                            {(loading && thinkingText) ? thinkingText : (placeholder || "Describe agent and @mention knowledge or tools")}
+                                        </span>
+                                        {chipLabel && chipVariant === 'trailing' && (
+                                            <div className="pointer-events-auto shrink-0">
+                                                <Chip
+                                                    label={chipLabel}
+                                                    leadingIcon={chipIcon ? (typeof chipIcon === 'string' ? <Icon>{chipIcon}</Icon> : chipIcon) : <Icon>spark</Icon>}
+                                                    onTrailingIconClick={onChipRemove}
+                                                    trailingIcon={<Icon>close</Icon>}
+                                                    variant="in-line"
+                                                    size="large"
+                                                    highContainer
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                                {variant === 'embedded' ? (
+                                    <div
+                                        ref={editorRef}
+                                        contentEditable={!loading}
+                                        onInput={handleInput}
+                                        onKeyDown={(e) => {
+                                            onKeyDown?.(e);
+                                            if (e.key === 'Enter' && !e.shiftKey) {
+                                                e.preventDefault();
+                                                if (loading) {
+                                                    onCancel?.();
+                                                } else {
+                                                    handleSend();
+                                                }
+                                            }
+                                        }}
+                                        onClick={handleEditorClick}
+                                        onFocus={() => {
+                                            setIsFocused(true);
+                                            onFocus?.();
+                                        }}
+                                        onBlur={() => {
+                                            setIsFocused(false);
+                                            onBlur?.();
+                                        }}
+                                        className={cn(
+                                            "w-full bg-transparent outline-none body-large text-on-surface placeholder:text-on-surface-variant transition-[height] duration-300 pt-[0px] pl-2 overflow-y-auto overflow-x-hidden pr-[17px] min-h-[27px]",
+                                            isExpanded ? 'h-full scroll-thin' : (showExpandButton ? 'scroll-thin' : ''),
+                                            isEmpty && "isEmpty",
+                                            multilinePlaceholder && "row-start-1 col-start-1 z-10"
+                                        )}
+                                        aria-label="Gemini Prompt Input"
+                                    />
+                                ) : (
+                                        <textarea
+                                            ref={textareaRef}
+                                            value={prompt}
+                                            onInput={handleInput}
+                                onKeyDown={handleKeyDownInternal}
+                                            placeholder=""
+                                            rows={1}
+                                            className={cn(
+                                                "w-full bg-transparent resize-none outline-none body-large text-on-surface placeholder:text-on-surface-variant transition-[height] duration-300 pt-[0px] pl-2 overflow-hidden pr-[17px]",
+                                                isExpanded ? 'h-full scroll-thin' : (showExpandButton ? 'scroll-thin' : ''),
+                                            )}
+                                            aria-label="Gemini Prompt Input"
+                                            style={isSingleLine ? {
+                                                whiteSpace: 'normal',
+                                                paddingTop: '6px',
+                                                marginTop: '0px',
+                                                paddingBottom: '0px',
+                                                paddingRight: '0px',
+                                                opacity: (loading && thinkingText) ? 0 : 1,
+                                                textIndent: (chipLabel && chipVariant === 'leading') ? `${(chipWidth || 70) + 16}px` : '0px'
+                                            } : {
+                                                height: '27px',
+                                                opacity: (loading && thinkingText) ? 0 : 1,
+                                                paddingTop: '1px',
+                                                textIndent: (chipLabel && chipVariant === 'leading') ? `${(chipWidth || 70) + 6}px` : '0px'
+                                            }}
+                                            onFocus={onFocus}
+                                            onBlur={onBlur}
+                                            autoFocus={autoFocus}
+                                        />
+                                )}
+                            </div>
+                        {showExpandButton && !isExpanded && !isSingleLine && (
+                            <div className="absolute top-[-8px] right-[-8px]">
+                                <IconButton
+                                    size="xsmall"
+                                    className="!w-10 !h-10"
+                                    onClick={() => setIsExpanded(true)}
+                                    aria-label="Expand prompt input"
+                                >
+                                    <Icon rounded>expand_content</Icon>
+                                </IconButton>
+                            </div>
+                        )}
+                        {isExpanded && !isSingleLine && (
+                            <div className="absolute top-[-8px] right-[-8px]">
+                                <IconButton
+                                    size="xsmall"
+                                    className="!w-10 !h-10"
+                                    onClick={() => setIsExpanded(false)}
+                                    aria-label="Collapse prompt input"
+                                >
+                                    <Icon rounded>collapse_content</Icon>
+                                </IconButton>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            {/* Shared Elements - Absolutely Positioned */}
+            <div className="absolute inset-0 pointer-events-none">
+                {/* Add Attachment Button */}
+                <div
+                    className="absolute transition-opacity duration-300 pointer-events-auto z-20"
+                    style={{
+                        left: isSingleLine ? '12px' : '11px',
+                        bottom: isSingleLine ? '15px' : '11px'
+                    }}
+                >
+                    <Tooltip content={variant === 'embedded' ? "Add context" : "Add"}>
+                        <div className="flex items-center">
+                            <IconButton
+                                variant="standard"
+                                size="small"
+                                onClick={handleAddClick}
+                                aria-label={variant === 'embedded' ? "Add context" : "Add"}
+                                className="!w-[42px] !h-[42px] text-on-surface-variant"
+                            >
+                                {loading ? (
+                                    <div className="flex items-center justify-center">
+                                        <CircularProgressIndicator variant="gemini" isIndeterminate size={28} />
+                                    </div>
+                                ) : (
+                                        <Icon rounded>add</Icon>
+                                )}
+                            </IconButton>
+                        </div>
+                    </Tooltip>
+                    {variant !== 'embedded' && (
+                        <Menu anchorEl={addMenuAnchor} open={Boolean(addMenuAnchor)} onClose={() => setAddMenuAnchor(null)}>
+                            <MenuItem headline="Upload files" leadingIcon={<Icon rounded>attachment</Icon>} onClick={handleUploadFileClick} />
+                            <MenuItem headline="Add from Drive" leadingIcon={<Icon rounded>add_to_drive</Icon>} onClick={() => setAddMenuAnchor(null)} />
+                            <MenuItem headline="Import code" leadingIcon={<Icon rounded>code</Icon>} onClick={handleImportClick} />
+                        </Menu>
+                    )}
+                </div>
+
+                {/* Tools Button */}
+                <div
+                    className="absolute transition-opacity duration-300 pointer-events-auto overflow-hidden whitespace-nowrap z-20"
+                    style={{
+                        left: isSingleLine ? '43px' : '54px',
+                        bottom: isSingleLine ? '14px' : '11px',
+                        opacity: (isSingleLine || hideToolsProp || variant === 'embedded') ? 0 : 1,
+                        maxWidth: (isSingleLine || hideToolsProp || variant === 'embedded') ? '0px' : '200px',
+                        pointerEvents: (isSingleLine || hideToolsProp || variant === 'embedded') ? 'none' : 'auto'
+                    }}
+                >
+                    <Button
+                        variant="text"
+                        size="small"
+                        onClick={(e) => setToolsMenuAnchor(e.currentTarget)}
+                        aria-label="Tools"
+                        className={cn(
+                            "[&>span:first-of-type]:!w-5 [&>span:first-of-type]:!h-5 !text-on-surface-variant !gap-[6px]",
+                            Boolean(toolsMenuAnchor) && "is-open"
+                        )}
+                        icon={<Icon rounded className="!text-[20px]">page_info</Icon>}
+                    >
+                        Tools
+                    </Button>
+                    <Menu anchorEl={toolsMenuAnchor} open={Boolean(toolsMenuAnchor)} onClose={() => setToolsMenuAnchor(null)} className="!w-[282px]">
+                        {modes.map(mode => (
+                            <MenuItem
+                                key={mode.id}
+                                headline={
+                                    <div className="flex items-center gap-2">
+                                        <span>{mode.label}</span>
+                                        {(mode as any).badge && (
+                                            <div className="h-6 px-2.5 bg-secondary-container rounded-full flex items-center gap-1 shrink-0">
+                                                <Icon rounded className="text-on-secondary-container !text-[16px] filled-icon">science</Icon>
+                                                <span className="text-on-secondary-container body-small-emphasized leading-none">Labs</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                }
+                                leadingIcon={
+                                    mode.icon === 'banana' ? (
+                                        <BananaIcon />
+                                    ) : (
+                                            <Icon rounded className="!text-[20px]" style={{ fontVariationSettings: "'FILL' 0" }}>{mode.icon}</Icon>
+                                    )
+                                }
+                                onClick={() => handleModeClick(mode.id)}
+                                className="!h-10 !pl-[18px] !pr-3 !gap-[14px]"
+                                headlineClassName="body-medium-emphasized"
+                            />
+                        ))}
+                    </Menu>
+                </div>
+
+                {/* Send/Mic Action Group */}
+                <div
+                    className="absolute transition-opacity duration-300 pointer-events-auto z-20"
+                    style={{
+                        right: isSingleLine ? '12px' : '11px',
+                        bottom: isSingleLine ? '14px' : '11px'
+                    }}
+                >
+                    <div className="flex items-center gap-[5px]">
+                    {/* Model Picker */}
+                        {!hideModelPickerProp && !isSingleLine && variant !== 'embedded' && (
+                        <>
+                                <MenuButton
+                                    variant="text"
+                                    label={currentModel.label}
+                                    trailingIcon="keyboard_arrow_down"
+                                    className="!text-on-surface-variant !px-3 font-medium [&_.material-symbols-outlined]:!text-[20px] !gap-[8px]"
+                                    menuClassName="!w-[324px]"
+                                >
+                                    <div className="pl-4 pr-3 py-2 text-on-surface-variant text-sm font-medium">Gemini 3</div>
+                                    {models.map(model => (
+                                        <MenuItem
+                                            variant="default"
+                                            key={model.id}
+                                            headline={model.fullLabel}
+                                            supportingText={model.description}
+                                            headlineClassName="body-medium"
+                                            supportingTextClassName="body-small"
+                                            className="!h-auto !py-[7px]"
+                                            trailingIcon={
+                                                model.id === selectedModel ? (
+                                                    <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center shadow-sm">
+                                                        <Icon rounded className="text-on-primary text-[14px] font-bold">check</Icon>
+                                                    </div>
+                                                ) : (
+                                                    (model as any).badge && (
+                                                        <div className="h-5 px-2 bg-primary text-on-primary label-small rounded-full flex items-center justify-center shadow-sm">
+                                                            {(model as any).badge}
+                                                            </div>
+                                                        )
+                                                    )
+                                            }
+                                            onClick={() => setSelectedModel(model.id)}
+                                        />
+                                    ))}
+                                </MenuButton>
+                        </>
+                    )}
+
+                        {(prompt || loading || attachments.length > 0) ? (
+                            <Tooltip content="Submit">
+                                <IconButton
+                                    variant="standard"
+                                    size="small"
+                                    className={cn(
+                                        "bg-surface-container !w-[42px] !h-[42px]",
+                                        loading ? 'text-primary' : 'text-on-surface-variant'
+                                    )}
+                                    onClick={loading ? onCancel : handleSend}
+                                    aria-label={loading ? 'Stop generation' : 'Send prompt'}
+                                    disabled={loading && !onCancel}
+                                >
+                                    <Icon rounded className="filled-icon">{loading ? 'stop' : 'send'}</Icon>
+                                </IconButton>
+                            </Tooltip>
+                    ) : (
+                                <Tooltip content="Use microphone">
+                                    <IconButton variant="standard" size="small" aria-label="Use microphone" className="!w-[42px] !h-[42px] text-on-surface-variant">
+                                        <Icon rounded className="filled-icon" style={{ fontSize: '20px' }}>mic</Icon>
+                                    </IconButton>
+                                </Tooltip>
+                    )}
+                </div>
+                </div>
+            </div>
+
+            {/* Animated Thinking State Overlay */}
+            {loading && thinkingVariant === 'animated' && (
+                <div
+                    className={cn(
+                        "absolute -inset-[1px] pointer-events-none z-10 transition-opacity duration-300",
+                        loading ? "opacity-100" : "opacity-0"
+                    )}
+                >
+                    <PromptThinkingAnimation
+                        borderRadius={flatTop ? (isSingleLine ? "4px 4px 36px 36px" : "4px 4px 32px 32px") : (isSingleLine ? "37px" : "33px")}
+                        className="w-full h-full"
+                        strokeWidth={1}
+                        speed={2}
+                        glowSpeed={1.5}
+                        shadowY={appearance === 'on-surface' ? 8 : 4}
+                        shadowBlur={appearance === 'on-surface' ? 24 : 16}
+                        shadowColor="rgba(0,0,0,0.15)"
+                        backgroundColor="transparent"
+                    />
+                </div>
+            )}
+            {/* AddToAgent for Embedded Variant */}
+            {variant === 'embedded' && (
+                <AddToAgent
+                    ref={addToAgentRef}
+                    variables={outputs}
+                    onAddVariable={insertOutput}
+                    onAddToolClick={() => {
+                        if (onAddToolClick) {
+                            onAddToolClick();
+                        }
+                    }}
+                    allTools={allTools}
+                    onAddTool={(tool) => {
+                        insertMention({
+                            type: tool.itemType === 'agent' ? 'agent' : 'action',
+                            id: tool.appId || tool.actionIds[0],
+                            label: tool.label
+                        });
+                        onAddTool?.(tool);
+                    }}
+                    onAddKnowledge={(type) => {
+                        onAddKnowledge?.(type);
+                    }}
+                    onAddExistingKnowledge={(item) => {
+                        insertMention({ type: 'file', id: item.id, label: item.title });
+                        onAddExistingKnowledge?.(item);
+                    }}
+                    knowledge={knowledge}
+                    nodeNumbers={nodeNumbers}
+                    className="hidden" // AddToAgent is used as a menu anchor, IconButton is rendered elsewhere
+                />
+            )}
+        </div>
+    );
+});
+
+PromptInput.displayName = 'PromptInput';

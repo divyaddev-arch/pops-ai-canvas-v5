@@ -1,0 +1,310 @@
+[
+  {
+    "person_number": 100,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2023, "month": 1, "day": 1},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": []
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 101,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2023, "month": 1, "day": 1},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [100]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 102,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2023, "month": 6, "day": 15},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [100]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 103,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2024, "month": 2, "day": 1},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [100]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 104,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2024, "month": 3, "day": 20},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [100]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 200,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2022, "month": 11, "day": 1},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": []
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 201,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2023, "month": 2, "day": 10},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 202,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2023, "month": 3, "day": 15},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 203,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2024, "month": 1, "day": 5},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 204,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2024, "month": 4, "day": 12},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 205,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2025, "month": 1, "day": 20},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 301,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 2, "day": 1},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 302,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 2, "day": 1},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 303,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 10},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 304,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 10},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 305,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 15},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 306,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 20},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 307,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 25},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 400,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 401,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [400, 205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 402,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [400, 205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 403,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [400, 205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 404,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [400, 205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 405,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [400, 205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 406,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [400, 205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 407,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [400, 205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 408,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [400, 205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  },
+  {
+    "person_number": 409,
+    "manager_chain_history": [
+      {
+        "effective_start_date": {"year": 2026, "month": 3, "day": 31},
+        "effective_end_date": {"year": 9999, "month": 12, "day": 31},
+        "manager_chain": [400, 205, 200]
+      }
+    ],
+    "last_refresh_timestamp": {"seconds": 1774900929, "nanos": 0}
+  }
+]

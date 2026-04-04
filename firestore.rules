@@ -1,0 +1,164 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: userId
+    // Fields:
+    //   - displayName: string (required, 1-100 chars)
+    //   - email: string (required, valid email)
+    //   - photoURL: string (optional, valid URL)
+    //   - role: string (required, 'admin' or 'user')
+    //   - createdAt: timestamp (required)
+    //
+    // Collection: projects
+    // Document ID: projectId
+    // Fields:
+    //   - projectName: string (required, 1-100 chars)
+    //   - ownerId: string (required, matches creator UID)
+    //   - createdAt: timestamp (required)
+    //
+    // Collection: projects/{projectId}/sessions
+    // Document ID: sessionId
+    // Fields:
+    //   - projectId: string (required)
+    //   - projectName: string (required)
+    //   - userId: string (required, matches creator UID)
+    //   - createdAt: timestamp (required)
+    //
+    // Collection: projects/{projectId}/sessions/{sessionId}/messages
+    // Document ID: messageId
+    // Fields:
+    //   - role: string (required, 'user', 'agent', 'assistant' or 'model')
+    //   - content: string (required, 1-10000 chars)
+    //   - timestamp: timestamp (required)
+    //   - error: bool (optional)
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        (request.auth.token.email == "pandeyharshit@google.com" && request.auth.token.email_verified == true) ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')
+      );
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function isValidString(field, minLen, maxLen) {
+      return request.resource.data[field] is string &&
+             request.resource.data[field].size() >= minLen &&
+             request.resource.data[field].size() <= maxLen;
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.size() > 3 && email.matches(".*@.*");
+    }
+
+    function isValidUrl(url) {
+      return url is string && (url == "" || url.size() < 2000);
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+    function isValidUser(data) {
+      return hasRequiredFields(['displayName', 'role', 'createdAt']) &&
+             isValidString('displayName', 1, 100) &&
+             (!('email' in data) || isValidEmail(data.email)) &&
+             (!('photoURL' in data) || isValidUrl(data.photoURL)) &&
+             data.role in ['admin', 'user'] &&
+             data.createdAt is timestamp;
+    }
+
+    function isValidProject(data) {
+      return hasRequiredFields(['projectName', 'ownerId', 'createdAt']) &&
+             data.ownerId == request.auth.uid &&
+             isValidString('projectName', 1, 100) &&
+             data.createdAt is timestamp;
+    }
+
+    function isValidSession(data) {
+      return hasRequiredFields(['projectId', 'userId', 'createdAt']) &&
+             data.userId == request.auth.uid &&
+             data.projectId is string &&
+             data.createdAt is timestamp;
+    }
+
+    function isValidMessage(data) {
+      return hasRequiredFields(['role', 'content', 'timestamp']) &&
+             data.role in ['user', 'agent', 'assistant', 'model'] &&
+             isValidString('content', 1, 10000) &&
+             data.timestamp is timestamp;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+    
+    // Users
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isOwner(userId) && isValidUser(request.resource.data) && (request.resource.data.role == 'user' || isAdmin());
+      allow update: if isOwner(userId) && isValidUser(request.resource.data) && (request.resource.data.role == resource.data.role || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    // Projects
+    match /projects/{projectId} {
+      allow create: if isAuthenticated() && isValidProject(request.resource.data);
+      allow read: if isAuthenticated() && (isAdmin() || resource.data.ownerId == request.auth.uid);
+      allow update: if isAuthenticated() && (isAdmin() || resource.data.ownerId == request.auth.uid) && isValidProject(request.resource.data);
+      allow delete: if isAuthenticated() && (isAdmin() || resource.data.ownerId == request.auth.uid);
+
+      // Sessions
+      match /sessions/{sessionId} {
+        allow create: if isAuthenticated() && isValidSession(request.resource.data);
+        allow read: if isAuthenticated() && (
+          isAdmin() || 
+          resource.data.userId == request.auth.uid ||
+          get(/databases/$(database)/documents/projects/$(projectId)).data.ownerId == request.auth.uid
+        );
+        allow update: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin()) && isValidSession(request.resource.data);
+        allow delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+  
+        // Messages
+        match /messages/{messageId} {
+          allow create: if isAuthenticated() && isValidMessage(request.resource.data) && (
+            isAdmin() ||
+            get(/databases/$(database)/documents/projects/$(projectId)/sessions/$(sessionId)).data.userId == request.auth.uid ||
+            get(/databases/$(database)/documents/projects/$(projectId)).data.ownerId == request.auth.uid
+          );
+          allow read: if isAuthenticated() && (
+            isAdmin() ||
+            get(/databases/$(database)/documents/projects/$(projectId)/sessions/$(sessionId)).data.userId == request.auth.uid || 
+            get(/databases/$(database)/documents/projects/$(projectId)).data.ownerId == request.auth.uid
+          );
+          allow update, delete: if isAdmin();
+        }
+      }
+    }
+    
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

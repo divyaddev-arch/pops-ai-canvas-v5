@@ -1,0 +1,1490 @@
+[
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/100"
+    },
+    "person_number": 100,
+    "username": "richardmccoll",
+    "preferred_name": {
+      "given_name": "Richard",
+      "family_name": "Mccoll"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP1"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "richardmccoll@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Senior Director",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": null,
+        "manager_chain": []
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L9"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/101"
+    },
+    "person_number": 101,
+    "username": "newfelh",
+    "preferred_name": {
+      "given_name": "Newfel",
+      "family_name": "Harrat"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP1"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "newfelh@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "richardmccoll",
+          "person_number": 100
+        },
+        "manager_chain": [
+          {
+            "username": "richardmccoll",
+            "person_number": 100
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/102"
+    },
+    "person_number": 102,
+    "username": "heatherg",
+    "preferred_name": {
+      "given_name": "Heather",
+      "family_name": "Gardner"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP1"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "heatherg@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "richardmccoll",
+          "person_number": 100
+        },
+        "manager_chain": [
+          {
+            "username": "richardmccoll",
+            "person_number": 100
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L5"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/103"
+    },
+    "person_number": 103,
+    "username": "katied",
+    "preferred_name": {
+      "given_name": "Katie",
+      "family_name": "Dunphy"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-REMOTE"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "katied@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "UX Designer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "richardmccoll",
+          "person_number": 100
+        },
+        "manager_chain": [
+          {
+            "username": "richardmccoll",
+            "person_number": 100
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "UX Design"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/104"
+    },
+    "person_number": 104,
+    "username": "wendym",
+    "preferred_name": {
+      "given_name": "Wendy",
+      "family_name": "McCall"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-NYC-9TH"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "wendym@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "richardmccoll",
+          "person_number": 100
+        },
+        "manager_chain": [
+          {
+            "username": "richardmccoll",
+            "person_number": 100
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/200"
+    },
+    "person_number": 200,
+    "username": "nsudhir",
+    "preferred_name": {
+      "given_name": "Sudhir",
+      "family_name": "N"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-NYC-9TH"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "nsudhir@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Director",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": null,
+        "manager_chain": []
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L8"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/201"
+    },
+    "person_number": 201,
+    "username": "reportee5",
+    "preferred_name": {
+      "given_name": "Reportee",
+      "family_name": "Five"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-NYC-9TH"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "reportee5@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Associate Product Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "nsudhir",
+          "person_number": 200
+        },
+        "manager_chain": [
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/202"
+    },
+    "person_number": 202,
+    "username": "reportee6",
+    "preferred_name": {
+      "given_name": "Reportee",
+      "family_name": "Six"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-NYC-9TH"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "reportee6@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Product Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "nsudhir",
+          "person_number": 200
+        },
+        "manager_chain": [
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L5"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/203"
+    },
+    "person_number": 203,
+    "username": "reportee7",
+    "preferred_name": {
+      "given_name": "Reportee",
+      "family_name": "Seven"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "UK-LON-6PS"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "reportee7@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Product Analyst",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "nsudhir",
+          "person_number": 200
+        },
+        "manager_chain": [
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Data Science"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/204"
+    },
+    "person_number": 204,
+    "username": "reportee8",
+    "preferred_name": {
+      "given_name": "Reportee",
+      "family_name": "Eight"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-NYC-9TH"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "reportee8@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Engineering Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "nsudhir",
+          "person_number": 200
+        },
+        "manager_chain": [
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L6"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/205"
+    },
+    "person_number": 205,
+    "username": "yavinay",
+    "preferred_name": {
+      "given_name": "Vinay",
+      "family_name": "Y"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-REMOTE"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "yavinay@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Senior Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "nsudhir",
+          "person_number": 200
+        },
+        "manager_chain": [
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L7"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/301"
+    },
+    "person_number": 301,
+    "username": "subreportee1",
+    "preferred_name": {
+      "given_name": "Sub",
+      "family_name": "One"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-REMOTE"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "subreportee1@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Associate Product Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "yavinay",
+          "person_number": 205
+        },
+        "manager_chain": [
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/302"
+    },
+    "person_number": 302,
+    "username": "subreportee2",
+    "preferred_name": {
+      "given_name": "Sub",
+      "family_name": "Two"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-NYC-9TH"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "subreportee2@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Associate Product Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "yavinay",
+          "person_number": 205
+        },
+        "manager_chain": [
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/303"
+    },
+    "person_number": 303,
+    "username": "subreportee3",
+    "preferred_name": {
+      "given_name": "Sub",
+      "family_name": "Three"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-REMOTE"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "subreportee3@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Associate Product Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "yavinay",
+          "person_number": 205
+        },
+        "manager_chain": [
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/304"
+    },
+    "person_number": 304,
+    "username": "subreportee4",
+    "preferred_name": {
+      "given_name": "Sub",
+      "family_name": "Four"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP1"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "subreportee4@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Associate Product Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "yavinay",
+          "person_number": 205
+        },
+        "manager_chain": [
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/305"
+    },
+    "person_number": 305,
+    "username": "subreportee5",
+    "preferred_name": {
+      "given_name": "Sub",
+      "family_name": "Five"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-REMOTE"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "subreportee5@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Associate Product Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "yavinay",
+          "person_number": 205
+        },
+        "manager_chain": [
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/306"
+    },
+    "person_number": 306,
+    "username": "subreportee6",
+    "preferred_name": {
+      "given_name": "Sub",
+      "family_name": "Six"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-NYC-9TH"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "subreportee6@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Associate Product Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "yavinay",
+          "person_number": 205
+        },
+        "manager_chain": [
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/307"
+    },
+    "person_number": 307,
+    "username": "subreportee7",
+    "preferred_name": {
+      "given_name": "Sub",
+      "family_name": "Seven"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-REMOTE"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "subreportee7@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Associate Product Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "yavinay",
+          "person_number": 205
+        },
+        "manager_chain": [
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Product Management"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/400"
+    },
+    "person_number": 400,
+    "username": "managerx",
+    "preferred_name": {
+      "given_name": "Manager",
+      "family_name": "X"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP2"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "managerx@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Engineering Manager",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "yavinay",
+          "person_number": 205
+        },
+        "manager_chain": [
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L6"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/401"
+    },
+    "person_number": 401,
+    "username": "mgrid1",
+    "preferred_name": {
+      "given_name": "MgrX",
+      "family_name": "Reportee1"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP2"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "mgrid1@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "managerx",
+          "person_number": 400
+        },
+        "manager_chain": [
+          {
+            "username": "managerx",
+            "person_number": 400
+          },
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/402"
+    },
+    "person_number": 402,
+    "username": "mgrid2",
+    "preferred_name": {
+      "given_name": "MgrX",
+      "family_name": "Reportee2"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP2"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "mgrid2@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "managerx",
+          "person_number": 400
+        },
+        "manager_chain": [
+          {
+            "username": "managerx",
+            "person_number": 400
+          },
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/403"
+    },
+    "person_number": 403,
+    "username": "mgrid3",
+    "preferred_name": {
+      "given_name": "MgrX",
+      "family_name": "Reportee3"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-REMOTE"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "mgrid3@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "managerx",
+          "person_number": 400
+        },
+        "manager_chain": [
+          {
+            "username": "managerx",
+            "person_number": 400
+          },
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/404"
+    },
+    "person_number": 404,
+    "username": "mgrid4",
+    "preferred_name": {
+      "given_name": "MgrX",
+      "family_name": "Reportee4"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP2"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "mgrid4@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "managerx",
+          "person_number": 400
+        },
+        "manager_chain": [
+          {
+            "username": "managerx",
+            "person_number": 400
+          },
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L5"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/405"
+    },
+    "person_number": 405,
+    "username": "mgrid5",
+    "preferred_name": {
+      "given_name": "MgrX",
+      "family_name": "Reportee5"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP2"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "mgrid5@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "managerx",
+          "person_number": 400
+        },
+        "manager_chain": [
+          {
+            "username": "managerx",
+            "person_number": 400
+          },
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/406"
+    },
+    "person_number": 406,
+    "username": "mgrid6",
+    "preferred_name": {
+      "given_name": "MgrX",
+      "family_name": "Reportee6"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-REMOTE"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "mgrid6@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "managerx",
+          "person_number": 400
+        },
+        "manager_chain": [
+          {
+            "username": "managerx",
+            "person_number": 400
+          },
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/407"
+    },
+    "person_number": 407,
+    "username": "mgrid7",
+    "preferred_name": {
+      "given_name": "MgrX",
+      "family_name": "Reportee7"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP2"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "mgrid7@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "managerx",
+          "person_number": 400
+        },
+        "manager_chain": [
+          {
+            "username": "managerx",
+            "person_number": 400
+          },
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/408"
+    },
+    "person_number": 408,
+    "username": "mgrid8",
+    "preferred_name": {
+      "given_name": "MgrX",
+      "family_name": "Reportee8"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-SVL-MP2"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "mgrid8@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "managerx",
+          "person_number": 400
+        },
+        "manager_chain": [
+          {
+            "username": "managerx",
+            "person_number": 400
+          },
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L4"
+        }
+      }
+    },
+    "is_hidden": false
+  },
+  {
+    "uri": {
+      "service_name": "hr.corp.googleapis.com",
+      "resource_path": "persons/409"
+    },
+    "person_number": 409,
+    "username": "mgrid9",
+    "preferred_name": {
+      "given_name": "MgrX",
+      "family_name": "Reportee9"
+    },
+    "location": {
+      "business_site": {
+        "source_key": "US-REMOTE"
+      }
+    },
+    "email_addresses": [
+      {
+        "address": "mgrid9@google.com",
+        "is_primary": true
+      }
+    ],
+    "work": {
+      "preferred_title": "Software Engineer",
+      "employment_status": "ACTIVE",
+      "person_type": "EMPLOYEE",
+      "full_time_equivalent_ratio": 10000,
+      "relationships": {
+        "direct_manager": {
+          "username": "managerx",
+          "person_number": 400
+        },
+        "manager_chain": [
+          {
+            "username": "managerx",
+            "person_number": 400
+          },
+          {
+            "username": "yavinay",
+            "person_number": 205
+          },
+          {
+            "username": "nsudhir",
+            "person_number": 200
+          }
+        ]
+      },
+      "visible_advanced_job_family": {
+        "name": "Software Engineering"
+      },
+      "advanced_job_details": {
+        "sensitive_information": {
+          "level": "L3"
+        }
+      }
+    },
+    "is_hidden": false
+  }
+]

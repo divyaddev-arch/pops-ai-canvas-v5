@@ -1,0 +1,107 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "A top-level container for AI coaching sessions.",
+      "type": "object",
+      "properties": {
+        "projectName": {
+          "type": "string",
+          "description": "The name of the project."
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "The UID of the user who owns this project."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the project was created."
+        }
+      },
+      "required": ["projectName", "ownerId", "createdAt"]
+    },
+    "Session": {
+      "title": "Session",
+      "description": "A specific chat session within a project.",
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "description": "The ID of the parent project."
+        },
+        "projectName": {
+          "type": "string",
+          "description": "The name of the parent project."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the session was created."
+        }
+      },
+      "required": ["projectId", "projectName", "userId", "createdAt"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "An individual message in a chat session.",
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["user", "agent", "assistant", "model"],
+          "description": "The sender of the message."
+        },
+        "content": {
+          "type": "string",
+          "description": "The text content of the message."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the message was sent."
+        },
+        "error": {
+          "type": "boolean",
+          "description": "Whether the message represents an error state."
+        }
+      },
+      "required": ["role", "content", "timestamp"]
+    },
+    "User": {
+      "title": "User",
+      "description": "A user profile.",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "photoURL": { "type": "string", "format": "uri" },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["displayName", "email", "role", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles."
+    },
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Collection of projects owned by users."
+    },
+    "/projects/{projectId}/sessions/{sessionId}": {
+      "schema": "Session",
+      "description": "Subcollection of sessions within a project."
+    },
+    "/projects/{projectId}/sessions/{sessionId}/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Subcollection of messages within a session."
+    }
+  }
+}

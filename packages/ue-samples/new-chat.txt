@@ -1,0 +1,2669 @@
+{
+  "name": "New Chat",
+  "type": "FRAME",
+  "position": {
+    "x": 2465,
+    "y": 1617
+  },
+  "size": {
+    "width": 1440,
+    "height": 1024
+  },
+  "cornerRadius": 24,
+  "fills": [
+    {
+      "type": "SOLID",
+      "color": "rgba(255, 255, 255, 1.00)"
+    }
+  ],
+  "children": [
+    {
+      "name": "padding",
+      "type": "RECTANGLE",
+      "position": {
+        "x": 338,
+        "y": 1401
+      },
+      "size": {
+        "width": 860,
+        "height": 121
+      },
+      "fills": [
+        {
+          "type": "SOLID",
+          "color": "rgba(248, 250, 253, 1.00)"
+        }
+      ]
+    },
+    {
+      "name": "Navigation Rail",
+      "type": "FRAME",
+      "position": {
+        "x": 0,
+        "y": 64
+      },
+      "size": {
+        "width": 96,
+        "height": 960
+      },
+      "layout": {
+        "layoutMode": "VERTICAL",
+        "primaryAxisSizingMode": "FIXED",
+        "counterAxisSizingMode": "FIXED",
+        "primaryAxisAlignItems": "MIN",
+        "counterAxisAlignItems": "CENTER",
+        "padding": {
+          "left": 0,
+          "right": 0,
+          "top": 16,
+          "bottom": 24
+        },
+        "itemSpacing": 16
+      },
+      "children": [
+        {
+          "name": "Frame 2147228953",
+          "type": "FRAME",
+          "position": {
+            "x": 0,
+            "y": 16
+          },
+          "size": {
+            "width": 96,
+            "height": 148
+          },
+          "layout": {
+            "layoutMode": "VERTICAL",
+            "primaryAxisSizingMode": "AUTO",
+            "counterAxisSizingMode": "AUTO",
+            "primaryAxisAlignItems": "MIN",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0
+            },
+            "itemSpacing": 16
+          },
+          "children": [
+            {
+              "name": "Frame 2147228892",
+              "type": "FRAME",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "size": {
+                "width": 96,
+                "height": 148
+              },
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "MIN",
+                "counterAxisAlignItems": "CENTER",
+                "padding": {
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0
+                },
+                "itemSpacing": 24
+              },
+              "children": [
+                {
+                  "name": "Navigation Rail",
+                  "type": "FRAME",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "size": {
+                    "width": 96,
+                    "height": 148
+                  },
+                  "layout": {
+                    "layoutMode": "HORIZONTAL",
+                    "primaryAxisSizingMode": "AUTO",
+                    "counterAxisSizingMode": "AUTO",
+                    "primaryAxisAlignItems": "MIN",
+                    "counterAxisAlignItems": "CENTER",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 10
+                  },
+                  "children": [
+                    {
+                      "name": "Destinations",
+                      "type": "FRAME",
+                      "position": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 96,
+                        "height": 148
+                      },
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "primaryAxisSizingMode": "AUTO",
+                        "counterAxisSizingMode": "FIXED",
+                        "primaryAxisAlignItems": "MIN",
+                        "counterAxisAlignItems": "MIN",
+                        "padding": {
+                          "left": 0,
+                          "right": 0,
+                          "top": 8,
+                          "bottom": 8
+                        },
+                        "itemSpacing": 4
+                      },
+                      "children": [
+                        {
+                          "name": "Nav item 13",
+                          "type": "INSTANCE",
+                          "position": {
+                            "x": 0,
+                            "y": 8
+                          },
+                          "size": {
+                            "width": 96,
+                            "height": 64
+                          },
+                          "layout": {
+                            "layoutMode": "VERTICAL",
+                            "primaryAxisSizingMode": "AUTO",
+                            "counterAxisSizingMode": "FIXED",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "padding": {
+                              "left": 0,
+                              "right": 0,
+                              "top": 6,
+                              "bottom": 6
+                            },
+                            "itemSpacing": 4
+                          },
+                          "children": [
+                            {
+                              "name": "Icon container",
+                              "type": "FRAME",
+                              "position": {
+                                "x": 20,
+                                "y": 6
+                              },
+                              "size": {
+                                "width": 56,
+                                "height": 32
+                              },
+                              "cornerRadius": 16,
+                              "layout": {
+                                "layoutMode": "HORIZONTAL",
+                                "primaryAxisSizingMode": "AUTO",
+                                "counterAxisSizingMode": "AUTO",
+                                "primaryAxisAlignItems": "CENTER",
+                                "counterAxisAlignItems": "CENTER",
+                                "padding": {
+                                  "left": 0,
+                                  "right": 0,
+                                  "top": 0,
+                                  "bottom": 0
+                                },
+                                "itemSpacing": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "State layer",
+                                  "type": "FRAME",
+                                  "position": {
+                                    "x": 0,
+                                    "y": 0
+                                  },
+                                  "size": {
+                                    "width": 56,
+                                    "height": 32
+                                  },
+                                  "layout": {
+                                    "layoutMode": "HORIZONTAL",
+                                    "primaryAxisSizingMode": "FIXED",
+                                    "counterAxisSizingMode": "FIXED",
+                                    "primaryAxisAlignItems": "CENTER",
+                                    "counterAxisAlignItems": "CENTER",
+                                    "padding": {
+                                      "left": 0,
+                                      "right": 0,
+                                      "top": 4,
+                                      "bottom": 4
+                                    },
+                                    "itemSpacing": 10
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "Icon",
+                                      "type": "ICON",
+                                      "svgData": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_1962)\">\n<path d=\"M2 22V4C2 3.45 2.19167 2.98333 2.575 2.6C2.975 2.2 3.45 2 4 2H12C12 2.3 12 2.61667 12 2.95C12 3.28333 12 3.63333 12 4H4V17.125L5.15 16H20V12C20.3667 12 20.7167 12 21.05 12C21.3833 12 21.7 12 22 12V16C22 16.55 21.8 17.025 21.4 17.425C21.0167 17.8083 20.55 18 20 18H6L2 22ZM18.5 10C18.4 10 18.3333 9.95 18.3 9.85C18.0333 8.83333 17.525 7.95833 16.775 7.225C16.0417 6.475 15.1667 5.96667 14.15 5.7C14.05 5.66667 14 5.6 14 5.5C14 5.38333 14.05 5.31667 14.15 5.3C15.1667 5.03333 16.0417 4.53333 16.775 3.8C17.525 3.05 18.0333 2.16667 18.3 1.15C18.3333 1.05 18.4 0.999999 18.5 0.999999C18.6167 0.999999 18.6833 1.05 18.7 1.15C18.9833 2.16667 19.4917 3.05 20.225 3.8C20.9583 4.53333 21.8333 5.03333 22.85 5.3C22.95 5.31667 23 5.38333 23 5.5C23 5.6 22.95 5.66667 22.85 5.7C21.8333 5.96667 20.95 6.475 20.2 7.225C19.4667 7.95833 18.9667 8.83333 18.7 9.85C18.6833 9.95 18.6167 10 18.5 10ZM4 16V4C4 4.23333 4 4.475 4 4.725C4 4.975 4 5.23333 4 5.5C4 7.31667 4 8.85833 4 10.125C4 11.375 4 12 4 12C4 12 4 11.9917 4 11.975C4 11.9417 4 11.8917 4 11.825V16Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_1962\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                                      "position": {
+                                        "x": 16,
+                                        "y": 4
+                                      },
+                                      "displaySize": {
+                                        "width": 24,
+                                        "height": 24
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "Label text",
+                              "type": "TEXT",
+                              "position": {
+                                "x": 0,
+                                "y": 42
+                              },
+                              "size": {
+                                "width": 96,
+                                "height": 16
+                              },
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": "rgba(68, 71, 70, 1.00)"
+                                }
+                              ],
+                              "typography": {
+                                "textAlign": {
+                                  "horizontal": "CENTER",
+                                  "vertical": "TOP"
+                                },
+                                "textAutoResize": "HEIGHT",
+                                "fontSize": 12,
+                                "fontName": "Google Sans Text Medium",
+                                "lineHeight": "16.00px",
+                                "letterSpacing": "0.10px"
+                              },
+                              "characters": "New chat"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Nav item 14",
+                          "type": "INSTANCE",
+                          "position": {
+                            "x": 0,
+                            "y": 76
+                          },
+                          "size": {
+                            "width": 96,
+                            "height": 64
+                          },
+                          "layout": {
+                            "layoutMode": "VERTICAL",
+                            "primaryAxisSizingMode": "AUTO",
+                            "counterAxisSizingMode": "FIXED",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "padding": {
+                              "left": 0,
+                              "right": 0,
+                              "top": 6,
+                              "bottom": 6
+                            },
+                            "itemSpacing": 4
+                          },
+                          "children": [
+                            {
+                              "name": "Icon container",
+                              "type": "FRAME",
+                              "position": {
+                                "x": 20,
+                                "y": 6
+                              },
+                              "size": {
+                                "width": 56,
+                                "height": 32
+                              },
+                              "cornerRadius": 16,
+                              "layout": {
+                                "layoutMode": "HORIZONTAL",
+                                "primaryAxisSizingMode": "AUTO",
+                                "counterAxisSizingMode": "AUTO",
+                                "primaryAxisAlignItems": "CENTER",
+                                "counterAxisAlignItems": "CENTER",
+                                "padding": {
+                                  "left": 0,
+                                  "right": 0,
+                                  "top": 0,
+                                  "bottom": 0
+                                },
+                                "itemSpacing": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "State layer",
+                                  "type": "FRAME",
+                                  "position": {
+                                    "x": 0,
+                                    "y": 0
+                                  },
+                                  "size": {
+                                    "width": 56,
+                                    "height": 32
+                                  },
+                                  "layout": {
+                                    "layoutMode": "HORIZONTAL",
+                                    "primaryAxisSizingMode": "FIXED",
+                                    "counterAxisSizingMode": "FIXED",
+                                    "primaryAxisAlignItems": "CENTER",
+                                    "counterAxisAlignItems": "CENTER",
+                                    "padding": {
+                                      "left": 0,
+                                      "right": 0,
+                                      "top": 4,
+                                      "bottom": 4
+                                    },
+                                    "itemSpacing": 10
+                                  },
+                                  "children": [
+                                    {
+                                      "name": "Icon",
+                                      "type": "ICON",
+                                      "svgData": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_1978)\">\n<path d=\"M12 21C9.7 21 7.69167 20.2417 5.975 18.725C4.275 17.1917 3.3 15.2833 3.05 13H5.1C5.33333 14.7333 6.1 16.1667 7.4 17.3C8.71667 18.4333 10.25 19 12 19C13.95 19 15.6 18.325 16.95 16.975C18.3167 15.6083 19 13.95 19 12C19 10.05 18.3167 8.4 16.95 7.05C15.6 5.68333 13.95 5 12 5C10.85 5 9.775 5.26667 8.775 5.8C7.775 6.33333 6.93333 7.06667 6.25 8H9V10H3V4H5V6.35C5.85 5.28333 6.88333 4.45833 8.1 3.875C9.33333 3.29167 10.6333 3 12 3C13.25 3 14.4167 3.24167 15.5 3.725C16.6 4.19167 17.55 4.83333 18.35 5.65C19.1667 6.45 19.8083 7.4 20.275 8.5C20.7583 9.58333 21 10.75 21 12C21 13.25 20.7583 14.425 20.275 15.525C19.8083 16.6083 19.1667 17.5583 18.35 18.375C17.55 19.175 16.6 19.8167 15.5 20.3C14.4167 20.7667 13.25 21 12 21ZM14.8 16.2L11 12.4V7H13V11.6L16.2 14.8L14.8 16.2Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_1978\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                                      "position": {
+                                        "x": 16,
+                                        "y": 4
+                                      },
+                                      "displaySize": {
+                                        "width": 24,
+                                        "height": 24
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "Label text",
+                              "type": "TEXT",
+                              "position": {
+                                "x": 0,
+                                "y": 42
+                              },
+                              "size": {
+                                "width": 96,
+                                "height": 16
+                              },
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": "rgba(68, 71, 70, 1.00)"
+                                }
+                              ],
+                              "typography": {
+                                "textAlign": {
+                                  "horizontal": "CENTER",
+                                  "vertical": "TOP"
+                                },
+                                "textAutoResize": "HEIGHT",
+                                "fontSize": 12,
+                                "fontName": "Google Sans Text Medium",
+                                "lineHeight": "16.00px",
+                                "letterSpacing": "0.10px"
+                              },
+                              "characters": "Recent"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prompt Input - MVP",
+      "type": "INSTANCE",
+      "position": {
+        "x": 408,
+        "y": 892
+      },
+      "size": {
+        "width": 720,
+        "height": 116
+      },
+      "layout": {
+        "layoutMode": "VERTICAL",
+        "primaryAxisSizingMode": "AUTO",
+        "counterAxisSizingMode": "FIXED",
+        "primaryAxisAlignItems": "MAX",
+        "counterAxisAlignItems": "CENTER",
+        "padding": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "itemSpacing": 0
+      },
+      "children": [
+        {
+          "name": "Gradient",
+          "type": "VECTOR_GRAPHIC",
+          "svgData": "<svg viewBox=\"0 0 720 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<mask id=\"mask0_10432_3710\" style=\"mask-type:alpha\" maskUnits=\"userSpaceOnUse\" x=\"0\" y=\"0\" width=\"720\" height=\"32\">\n<path d=\"M0 0H720V32H0V0Z\" fill=\"url(#paint0_linear_10432_3710)\"/>\n</mask>\n<g mask=\"url(#mask0_10432_3710)\">\n<path d=\"M0 0H720V32H0V0Z\" fill=\"white\"/>\n</g>\n<defs>\n<linearGradient id=\"paint0_linear_10432_3710\" x1=\"360\" y1=\"0\" x2=\"360\" y2=\"32\" gradientUnits=\"userSpaceOnUse\">\n<stop stop-color=\"white\" stop-opacity=\"0\"/>\n<stop offset=\"1\" stop-color=\"white\"/>\n</linearGradient>\n</defs>\n</svg>\n",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "displaySize": {
+            "width": 720,
+            "height": 32
+          }
+        },
+        {
+          "name": "Input field",
+          "type": "FRAME",
+          "position": {
+            "x": 0,
+            "y": 32
+          },
+          "size": {
+            "width": 720,
+            "height": 56
+          },
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "AUTO",
+            "primaryAxisAlignItems": "MIN",
+            "counterAxisAlignItems": "MAX",
+            "padding": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0
+            },
+            "itemSpacing": 0
+          },
+          "children": [
+            {
+              "name": "Text field",
+              "type": "FRAME",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "size": {
+                "width": 672,
+                "height": 56
+              },
+              "cornerRadius": 28,
+              "strokes": [
+                {
+                  "type": "SOLID",
+                  "color": "rgba(116, 119, 117, 1.00)"
+                }
+              ],
+              "strokeWeight": 1,
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisSizingMode": "FIXED",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "MIN",
+                "counterAxisAlignItems": "MAX",
+                "padding": {
+                  "left": 16,
+                  "right": 16,
+                  "top": 16,
+                  "bottom": 16
+                },
+                "itemSpacing": 10
+              },
+              "children": [
+                {
+                  "name": "Input text container",
+                  "type": "FRAME",
+                  "position": {
+                    "x": 16,
+                    "y": 16
+                  },
+                  "size": {
+                    "width": 640,
+                    "height": 24
+                  },
+                  "layout": {
+                    "layoutMode": "HORIZONTAL",
+                    "primaryAxisSizingMode": "FIXED",
+                    "counterAxisSizingMode": "AUTO",
+                    "primaryAxisAlignItems": "MIN",
+                    "counterAxisAlignItems": "CENTER",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 0
+                  },
+                  "children": [
+                    {
+                      "name": "User query",
+                      "type": "TEXT",
+                      "position": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 640,
+                        "height": 24
+                      },
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": "rgba(68, 71, 70, 1.00)"
+                        }
+                      ],
+                      "typography": {
+                        "textAlign": {
+                          "horizontal": "LEFT",
+                          "vertical": "TOP"
+                        },
+                        "textAutoResize": "HEIGHT",
+                        "fontSize": 16,
+                        "fontName": "Google Sans Text Regular",
+                        "lineHeight": "24.00px"
+                      },
+                      "characters": "Ask a question"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Action container",
+              "type": "FRAME",
+              "position": {
+                "x": 672,
+                "y": 0
+              },
+              "size": {
+                "width": 48,
+                "height": 56
+              },
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "MAX",
+                "counterAxisAlignItems": "MAX",
+                "padding": {
+                  "left": 0,
+                  "right": 0,
+                  "top": 4,
+                  "bottom": 4
+                },
+                "itemSpacing": 0
+              },
+              "children": [
+                {
+                  "name": "CEE Icon button",
+                  "type": "INSTANCE",
+                  "position": {
+                    "x": 0,
+                    "y": 4
+                  },
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  },
+                  "layout": {
+                    "layoutMode": "HORIZONTAL",
+                    "primaryAxisSizingMode": "FIXED",
+                    "counterAxisSizingMode": "FIXED",
+                    "primaryAxisAlignItems": "CENTER",
+                    "counterAxisAlignItems": "CENTER",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 0
+                  },
+                  "children": [
+                    {
+                      "name": "Container",
+                      "type": "FRAME",
+                      "position": {
+                        "x": 4,
+                        "y": 4
+                      },
+                      "size": {
+                        "width": 40,
+                        "height": 40
+                      },
+                      "cornerRadius": 1000,
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "primaryAxisSizingMode": "AUTO",
+                        "counterAxisSizingMode": "AUTO",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "padding": {
+                          "left": 0,
+                          "right": 0,
+                          "top": 0,
+                          "bottom": 0
+                        },
+                        "itemSpacing": 0
+                      },
+                      "children": [
+                        {
+                          "name": "State-layer",
+                          "type": "FRAME",
+                          "position": {
+                            "x": 0,
+                            "y": 0
+                          },
+                          "size": {
+                            "width": 40,
+                            "height": 40
+                          },
+                          "layout": {
+                            "layoutMode": "HORIZONTAL",
+                            "primaryAxisSizingMode": "AUTO",
+                            "counterAxisSizingMode": "AUTO",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "padding": {
+                              "left": 8,
+                              "right": 8,
+                              "top": 8,
+                              "bottom": 8
+                            },
+                            "itemSpacing": 0
+                          },
+                          "children": [
+                            {
+                              "name": "Icon",
+                              "type": "ICON",
+                              "svgData": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_3721)\">\n<path d=\"M3 20V4L22 12L3 20ZM5 17L16.85 12L5 7V10.5L11 12L5 13.5V17ZM5 17V12V7V10.5V13.5V17Z\" fill=\"#1F1F1F\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_3721\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                              "position": {
+                                "x": 8,
+                                "y": 8
+                              },
+                              "displaySize": {
+                                "width": 24,
+                                "height": 24
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Disclaimer",
+          "type": "FRAME",
+          "position": {
+            "x": 0,
+            "y": 88
+          },
+          "size": {
+            "width": 720,
+            "height": 28
+          },
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "AUTO",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 0,
+              "right": 0,
+              "top": 12,
+              "bottom": 0
+            },
+            "itemSpacing": 8
+          },
+          "children": [
+            {
+              "name": "Disclaimer",
+              "type": "TEXT",
+              "position": {
+                "x": 0,
+                "y": 12
+              },
+              "size": {
+                "width": 720,
+                "height": 16
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": "rgba(68, 71, 70, 1.00)"
+                }
+              ],
+              "typography": {
+                "textAlign": {
+                  "horizontal": "CENTER",
+                  "vertical": "TOP"
+                },
+                "textAutoResize": "HEIGHT",
+                "fontSize": 12,
+                "fontName": "Google Sans Text Regular",
+                "lineHeight": "16.00px",
+                "letterSpacing": "0.10px"
+              },
+              "characters": "AI sometimes generates inaccurate info, so double-check responses."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "welcome text",
+      "type": "FRAME",
+      "position": {
+        "x": 408,
+        "y": 474
+      },
+      "size": {
+        "width": 720,
+        "height": 76
+      },
+      "layout": {
+        "layoutMode": "VERTICAL",
+        "primaryAxisSizingMode": "AUTO",
+        "counterAxisSizingMode": "FIXED",
+        "primaryAxisAlignItems": "CENTER",
+        "counterAxisAlignItems": "CENTER",
+        "padding": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "itemSpacing": 0
+      },
+      "children": [
+        {
+          "name": "Welcome",
+          "type": "TEXT",
+          "position": {
+            "x": 301,
+            "y": 0
+          },
+          "size": {
+            "width": 118,
+            "height": 32
+          },
+          "fills": [
+            {
+              "type": "GRADIENT_LINEAR",
+              "gradient": [
+                {
+                  "color": "rgba(7, 142, 251, 1.00)",
+                  "position": 0
+                },
+                {
+                  "color": "rgba(172, 135, 235, 1.00)",
+                  "position": 1
+                }
+              ],
+              "transform": [
+                [
+                  0.982008159160614,
+                  0.18192452192306519,
+                  -0.08148233592510223
+                ],
+                [
+                  -6.661338147750939e-16,
+                  0.448434054851532,
+                  0.25480151176452637
+                ]
+              ]
+            }
+          ],
+          "typography": {
+            "textAlign": {
+              "horizontal": "LEFT",
+              "vertical": "TOP"
+            },
+            "textAutoResize": "WIDTH_AND_HEIGHT",
+            "fontSize": 24,
+            "fontName": "Google Sans Medium",
+            "lineHeight": "32.00px"
+          },
+          "characters": "Hello, Elisa"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT",
+          "position": {
+            "x": 183,
+            "y": 32
+          },
+          "size": {
+            "width": 355,
+            "height": 44
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": "rgba(31, 31, 31, 1.00)"
+            }
+          ],
+          "typography": {
+            "textAlign": {
+              "horizontal": "LEFT",
+              "vertical": "CENTER"
+            },
+            "textAutoResize": "WIDTH_AND_HEIGHT",
+            "fontSize": 36,
+            "fontName": "Google Sans Regular",
+            "lineHeight": "44.00px"
+          },
+          "characters": "How can I help today?"
+        }
+      ]
+    },
+    {
+      "name": "Response intent chips cluster",
+      "type": "FRAME",
+      "position": {
+        "x": 408,
+        "y": 874
+      },
+      "size": {
+        "width": 640,
+        "height": 40
+      },
+      "layout": {
+        "layoutMode": "HORIZONTAL",
+        "primaryAxisSizingMode": "AUTO",
+        "counterAxisSizingMode": "AUTO",
+        "primaryAxisAlignItems": "MIN",
+        "counterAxisAlignItems": "CENTER",
+        "padding": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "itemSpacing": 8
+      },
+      "children": [
+        {
+          "name": "support ticket prompt",
+          "type": "FRAME",
+          "position": {
+            "x": 0,
+            "y": 2
+          },
+          "size": {
+            "width": 241,
+            "height": 36
+          },
+          "cornerRadius": 100,
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": "rgba(235, 242, 254, 1.00)"
+            }
+          ],
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "AUTO",
+            "counterAxisSizingMode": "AUTO",
+            "primaryAxisAlignItems": "CENTER",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 12,
+              "right": 12,
+              "top": 8,
+              "bottom": 8
+            },
+            "itemSpacing": 4
+          },
+          "children": [
+            {
+              "name": "label-text",
+              "type": "ICON",
+              "svgData": "<svg viewBox=\"0 0 14 13\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M6.94178 12.2501C6.53345 12.2501 6.16886 12.1286 5.84803 11.8855C5.53692 11.6424 5.32303 11.3216 5.20636 10.923C4.9147 10.8647 4.6522 10.7237 4.41886 10.5001C4.19525 10.2667 4.04456 9.99939 3.96678 9.698C3.66539 9.6105 3.40775 9.4598 3.19386 9.24591C2.9897 9.03203 2.839 8.76953 2.74178 8.45841C2.35289 8.34175 2.03206 8.13272 1.77928 7.83133C1.5265 7.52022 1.40011 7.15564 1.40011 6.73758C1.40011 6.4848 1.45359 6.24661 1.56053 6.023C1.6772 5.78966 1.81817 5.59036 1.98345 5.42508L4.98761 2.4355L7.17511 4.63758C7.214 4.67647 7.26261 4.7105 7.32095 4.73966C7.37928 4.75911 7.43275 4.76883 7.48136 4.76883C7.56886 4.76883 7.64178 4.73966 7.70011 4.68133C7.76817 4.623 7.8022 4.55008 7.8022 4.46258C7.8022 4.41397 7.78761 4.3605 7.75845 4.30216C7.739 4.23411 7.70011 4.17091 7.64178 4.11258L5.89178 2.348C5.60011 2.05633 5.29873 1.84244 4.98761 1.70633C4.68623 1.57022 4.34109 1.50216 3.9522 1.50216C3.26192 1.50216 2.67859 1.73064 2.2022 2.18758C1.72581 2.64453 1.48761 3.27647 1.48761 4.08341C1.48761 4.15147 1.5022 4.26328 1.53136 4.41883C1.57025 4.56466 1.614 4.68619 1.66261 4.78341L0.525114 5.90633C0.389003 5.69244 0.267475 5.4348 0.160531 5.13341C0.0535862 4.8223 0.000113957 4.4723 0.000113957 4.08341C0.000113957 2.86814 0.384142 1.88619 1.1522 1.13758C1.92025 0.38897 2.85359 0.0146639 3.9522 0.0146639C4.4772 0.0146639 4.94873 0.0827196 5.36678 0.218831C5.78484 0.354942 6.19317 0.578553 6.59178 0.889664C7.00011 0.636886 7.4522 0.427858 7.94803 0.262581C8.45359 0.0875809 8.91053 8.08239e-05 9.31886 8.08239e-05C10.4564 8.08239e-05 11.4383 0.413275 12.2647 1.23966C13.0911 2.06605 13.5043 3.08689 13.5043 4.30216C13.5043 4.89522 13.4168 5.49314 13.2418 6.09591C13.0765 6.68897 12.7848 7.19453 12.3668 7.61258L8.26886 11.6813C8.08414 11.8661 7.87998 12.007 7.65636 12.1042C7.44248 12.2015 7.20428 12.2501 6.94178 12.2501ZM7.1897 10.6605L11.3022 6.51883C11.555 6.26605 11.7348 5.9355 11.8418 5.52716C11.9487 5.10911 12.0022 4.70078 12.0022 4.30216C12.0022 3.50494 11.7397 2.83897 11.2147 2.30425C10.6897 1.76952 10.0578 1.50216 9.31886 1.50216C9.05636 1.50216 8.76956 1.55077 8.45845 1.648C8.14734 1.74522 7.88484 1.87161 7.67095 2.02716L8.70636 3.06258C8.89109 3.2473 9.03692 3.46119 9.14386 3.70425C9.25081 3.9473 9.30428 4.20008 9.30428 4.46258C9.30428 4.96814 9.12442 5.40078 8.7647 5.7605C8.40498 6.1105 7.96748 6.2855 7.4522 6.2855C7.19942 6.2855 6.96123 6.23689 6.73761 6.13966C6.52373 6.04244 6.32442 5.90147 6.1397 5.71675L4.94386 4.52091L3.04803 6.41675C3.00914 6.45564 2.97998 6.49939 2.96053 6.548C2.95081 6.59661 2.94595 6.64522 2.94595 6.69383C2.94595 6.79105 2.97998 6.86883 3.04803 6.92716C3.11609 6.9855 3.19873 7.01466 3.29595 7.01466C3.35428 7.01466 3.40775 7.00008 3.45636 6.97091C3.50498 6.94175 3.55359 6.90286 3.6022 6.85425L5.07511 5.39591L5.80428 6.12508L4.27303 7.65633C4.23414 7.69522 4.20498 7.74383 4.18553 7.80216C4.17581 7.85078 4.17095 7.89939 4.17095 7.948C4.17095 8.0355 4.20498 8.10841 4.27303 8.16675C4.34109 8.22508 4.42373 8.25425 4.52095 8.25425C4.57928 8.25425 4.63275 8.23966 4.68136 8.2105C4.72998 8.18133 4.77859 8.14244 4.8272 8.09383L6.27095 6.66466L7.0147 7.39383L5.48345 8.92508C5.44456 8.96397 5.42025 9.00772 5.41053 9.05633C5.40081 9.10494 5.39595 9.15355 5.39595 9.20216C5.39595 9.28966 5.42998 9.36258 5.49803 9.42091C5.56609 9.47925 5.64386 9.50841 5.73136 9.50841C5.79942 9.50841 5.85289 9.49869 5.89178 9.47925C5.94039 9.45008 5.989 9.41119 6.03761 9.36258L7.51053 7.90425L8.25428 8.63341L6.72303 10.1647C6.68414 10.2036 6.65498 10.2473 6.63553 10.2959C6.62581 10.3445 6.62095 10.3931 6.62095 10.4417C6.62095 10.5292 6.65011 10.6022 6.70845 10.6605C6.7765 10.7188 6.85428 10.748 6.94178 10.748C6.99039 10.748 7.03414 10.7431 7.07303 10.7334C7.11192 10.7237 7.15081 10.6994 7.1897 10.6605Z\" fill=\"#0842A0\"/>\n</svg>\n",
+              "position": {
+                "x": 12,
+                "y": 8
+              },
+              "displaySize": {
+                "width": 20,
+                "height": 20
+              }
+            },
+            {
+              "name": "label-text",
+              "type": "TEXT",
+              "position": {
+                "x": 36,
+                "y": 8
+              },
+              "size": {
+                "width": 193,
+                "height": 20
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": "rgba(8, 66, 160, 1.00)"
+                }
+              ],
+              "typography": {
+                "textAlign": {
+                  "horizontal": "CENTER",
+                  "vertical": "CENTER"
+                },
+                "textAutoResize": "WIDTH_AND_HEIGHT",
+                "fontSize": 14,
+                "fontName": "Google Sans Text Medium",
+                "lineHeight": "20.00px",
+                "letterSpacing": "0.00%"
+              },
+              "characters": "Get support from People Ops"
+            }
+          ]
+        },
+        {
+          "name": "Building blocks/Response intent chips cluster/Intent chip",
+          "type": "INSTANCE",
+          "position": {
+            "x": 249,
+            "y": 0
+          },
+          "size": {
+            "width": 138,
+            "height": 40
+          },
+          "cornerRadius": 24,
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": "rgba(233, 238, 246, 1.00)"
+            }
+          ],
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "AUTO",
+            "counterAxisSizingMode": "AUTO",
+            "primaryAxisAlignItems": "MAX",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 12,
+              "right": 12,
+              "top": 10,
+              "bottom": 10
+            },
+            "itemSpacing": 8
+          },
+          "children": [
+            {
+              "name": "Content",
+              "type": "FRAME",
+              "position": {
+                "x": 12,
+                "y": 10
+              },
+              "size": {
+                "width": 114,
+                "height": 20
+              },
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "MIN",
+                "padding": {
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0
+                },
+                "itemSpacing": 0
+              },
+              "children": [
+                {
+                  "name": "Text",
+                  "type": "TEXT",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "size": {
+                    "width": 114,
+                    "height": 20
+                  },
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "color": "rgba(31, 31, 31, 1.00)"
+                    }
+                  ],
+                  "typography": {
+                    "textAlign": {
+                      "horizontal": "LEFT",
+                      "vertical": "TOP"
+                    },
+                    "textAutoResize": "WIDTH_AND_HEIGHT",
+                    "fontSize": 14,
+                    "fontName": "Google Sans Text Regular",
+                    "lineHeight": "20.00px"
+                  },
+                  "characters": "What can you do?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Building blocks/Response intent chips cluster/Intent chip",
+          "type": "INSTANCE",
+          "position": {
+            "x": 395,
+            "y": 0
+          },
+          "size": {
+            "width": 114,
+            "height": 40
+          },
+          "cornerRadius": 24,
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": "rgba(233, 238, 246, 1.00)"
+            }
+          ],
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "AUTO",
+            "counterAxisSizingMode": "AUTO",
+            "primaryAxisAlignItems": "MAX",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 12,
+              "right": 12,
+              "top": 10,
+              "bottom": 10
+            },
+            "itemSpacing": 8
+          },
+          "children": [
+            {
+              "name": "Content",
+              "type": "FRAME",
+              "position": {
+                "x": 12,
+                "y": 10
+              },
+              "size": {
+                "width": 90,
+                "height": 20
+              },
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "MIN",
+                "padding": {
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0
+                },
+                "itemSpacing": 0
+              },
+              "children": [
+                {
+                  "name": "Text",
+                  "type": "TEXT",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "size": {
+                    "width": 90,
+                    "height": 20
+                  },
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "color": "rgba(31, 31, 31, 1.00)"
+                    }
+                  ],
+                  "typography": {
+                    "textAlign": {
+                      "horizontal": "LEFT",
+                      "vertical": "TOP"
+                    },
+                    "textAutoResize": "WIDTH_AND_HEIGHT",
+                    "fontSize": 14,
+                    "fontName": "Google Sans Text Regular",
+                    "lineHeight": "20.00px"
+                  },
+                  "characters": "Book vacation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Building blocks/Response intent chips cluster/Intent chip",
+          "type": "INSTANCE",
+          "position": {
+            "x": 517,
+            "y": 0
+          },
+          "size": {
+            "width": 123,
+            "height": 40
+          },
+          "cornerRadius": 24,
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": "rgba(233, 238, 246, 1.00)"
+            }
+          ],
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "AUTO",
+            "counterAxisSizingMode": "AUTO",
+            "primaryAxisAlignItems": "MAX",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 12,
+              "right": 12,
+              "top": 10,
+              "bottom": 10
+            },
+            "itemSpacing": 8
+          },
+          "children": [
+            {
+              "name": "Content",
+              "type": "FRAME",
+              "position": {
+                "x": 12,
+                "y": 10
+              },
+              "size": {
+                "width": 99,
+                "height": 20
+              },
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "MIN",
+                "padding": {
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0
+                },
+                "itemSpacing": 0
+              },
+              "children": [
+                {
+                  "name": "Text",
+                  "type": "TEXT",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "size": {
+                    "width": 99,
+                    "height": 20
+                  },
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "color": "rgba(31, 31, 31, 1.00)"
+                    }
+                  ],
+                  "typography": {
+                    "textAlign": {
+                      "horizontal": "LEFT",
+                      "vertical": "TOP"
+                    },
+                    "textAutoResize": "WIDTH_AND_HEIGHT",
+                    "fontSize": 14,
+                    "fontName": "Google Sans Text Regular",
+                    "lineHeight": "20.00px"
+                  },
+                  "characters": "Grow in my role"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CEE Contextual App Bar",
+      "type": "INSTANCE",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "size": {
+        "width": 1440,
+        "height": 64
+      },
+      "layout": {
+        "layoutMode": "HORIZONTAL",
+        "primaryAxisSizingMode": "FIXED",
+        "counterAxisSizingMode": "FIXED",
+        "primaryAxisAlignItems": "SPACE_BETWEEN",
+        "counterAxisAlignItems": "CENTER",
+        "padding": {
+          "left": 12,
+          "right": 0,
+          "top": 10,
+          "bottom": 10
+        },
+        "itemSpacing": 0
+      },
+      "children": [
+        {
+          "name": "App container",
+          "type": "VECTOR_GRAPHIC",
+          "svgData": "<svg viewBox=\"0 0 1440 64\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<rect width=\"1440\" height=\"64\" fill=\"white\"/>\n</svg>\n",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "displaySize": {
+            "width": 1440,
+            "height": 64
+          }
+        },
+        {
+          "name": "Content",
+          "type": "FRAME",
+          "position": {
+            "x": 12,
+            "y": 8
+          },
+          "size": {
+            "width": 1260,
+            "height": 48
+          },
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "AUTO",
+            "primaryAxisAlignItems": "MIN",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0
+            },
+            "itemSpacing": 8
+          },
+          "children": [
+            {
+              "name": "Back icon",
+              "type": "INSTANCE",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "size": {
+                "width": 48,
+                "height": 48
+              },
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "padding": {
+                  "left": 4,
+                  "right": 4,
+                  "top": 4,
+                  "bottom": 4
+                },
+                "itemSpacing": 0
+              },
+              "children": [
+                {
+                  "name": "Container",
+                  "type": "FRAME",
+                  "position": {
+                    "x": 4,
+                    "y": 4
+                  },
+                  "size": {
+                    "width": 40,
+                    "height": 40
+                  },
+                  "cornerRadius": 1000,
+                  "layout": {
+                    "layoutMode": "HORIZONTAL",
+                    "primaryAxisSizingMode": "AUTO",
+                    "counterAxisSizingMode": "AUTO",
+                    "primaryAxisAlignItems": "CENTER",
+                    "counterAxisAlignItems": "CENTER",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 0
+                  },
+                  "children": [
+                    {
+                      "name": "State-layer",
+                      "type": "FRAME",
+                      "position": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 40,
+                        "height": 40
+                      },
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "primaryAxisSizingMode": "AUTO",
+                        "counterAxisSizingMode": "AUTO",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "padding": {
+                          "left": 8,
+                          "right": 8,
+                          "top": 8,
+                          "bottom": 8
+                        },
+                        "itemSpacing": -24
+                      },
+                      "children": [
+                        {
+                          "name": "Icon",
+                          "type": "ICON",
+                          "svgData": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_3739)\">\n<path d=\"M7.825 13L13.425 18.6L12 20L4 12L12 4L13.425 5.4L7.825 11H20V13H7.825Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_3739\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                          "position": {
+                            "x": 8,
+                            "y": 8
+                          },
+                          "displaySize": {
+                            "width": 24,
+                            "height": 24
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Product icon and text",
+              "type": "FRAME",
+              "position": {
+                "x": 56,
+                "y": 4
+              },
+              "size": {
+                "width": 1204,
+                "height": 40
+              },
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisSizingMode": "FIXED",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "MIN",
+                "counterAxisAlignItems": "CENTER",
+                "padding": {
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0
+                },
+                "itemSpacing": 16
+              },
+              "children": [
+                {
+                  "name": "Product logo",
+                  "type": "VECTOR_GRAPHIC",
+                  "svgData": "<svg viewBox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M20.0001 11.6667V11.6813V11.6667C18.9058 11.6661 17.8222 11.8817 16.8115 12.3011C15.8008 12.7205 14.8829 13.3354 14.1105 14.1105L15.8063 16.6667L17.5605 17.5605C17.8588 17.2059 18.2328 16.9229 18.655 16.7321C19.0773 16.5414 19.5369 16.4478 20.0001 16.4584C21.2834 16.4584 22.4084 17.1188 22.8355 18.2792C23.2626 19.4396 23.0209 20.4917 22.2918 21.2501L20.0001 23.5417L16.2188 27.2355L12.2918 30.8334C9.55635 29.0334 6.66676 24.6146 6.66676 20.0001C6.67774 16.4661 8.08126 13.079 10.573 10.573L9.17718 8.34381L7.05635 7.01672C5.34541 8.71791 3.98827 10.7411 3.06324 12.9694C2.1382 15.1978 1.66358 17.5873 1.66676 20.0001V20.0355C1.66676 27.2917 6.09593 32.0646 7.02301 32.9855C9.29593 35.248 11.3459 36.6667 12.2918 36.6667C12.6452 36.6664 12.9946 36.5921 13.3175 36.4486C13.6404 36.305 13.9297 36.0955 14.1668 35.8334C14.1668 35.8334 24.1105 26.9292 24.1668 26.8751C26.2834 24.8334 28.3334 22.5459 28.3334 20.0001C28.3334 17.7899 27.4555 15.6703 25.8927 14.1075C24.3299 12.5447 22.2102 11.6667 20.0001 11.6667Z\" fill=\"#4285F4\"/>\n<path d=\"M32.9687 7.0417C31.2662 5.33838 29.2448 3.98719 27.0199 3.06531C24.7951 2.14344 22.4104 1.66895 20.0021 1.66895C17.5938 1.66895 15.2091 2.14344 12.9842 3.06531C10.7594 3.98719 8.73792 5.33838 7.0354 7.0417L10.5771 10.5834C13.0659 8.08847 16.4426 6.68254 19.9665 6.67395C23.4905 6.66536 26.8741 8.05481 29.375 10.5375L32.1771 9.47295L32.9687 7.0417Z\" fill=\"#34A853\"/>\n<path d=\"M19.5146 31.0605L20 30.6251L16.2125 27.2292L15.7771 27.6417L19.5146 31.0605Z\" fill=\"#185ABC\"/>\n<path d=\"M32.1584 30.9479L29.4063 29.3937C28.8743 29.9122 28.307 30.3933 27.7084 30.8333L20.0001 23.5562L17.7084 21.2646C17.2523 20.7633 16.9876 20.1173 16.9609 19.4401C16.9342 18.7629 17.1473 18.098 17.5626 17.5625C16.7292 16.7291 15.0959 15.0791 14.1209 14.1C13.3438 14.8736 12.727 15.793 12.3058 16.8054C11.8847 17.8178 11.6675 18.9034 11.6667 20C11.6667 22.5 13.4917 24.6062 15.6251 26.6771C17.6563 28.65 20.0001 30.6354 20.0001 30.6354L25.8334 35.8437C26.5605 36.4937 27.0834 36.6416 27.7084 36.6416C28.5063 36.6416 29.9042 35.8833 32.9626 32.9354C32.9647 32.9583 32.148 30.9583 32.1584 30.9479Z\" fill=\"#EA4335\"/>\n<path d=\"M38.3333 20C38.3365 17.5876 37.8618 15.1985 36.9368 12.9704C36.0117 10.7424 34.6546 8.7196 32.9438 7.0188L29.4125 10.5605C30.6564 11.7975 31.6432 13.2684 32.3161 14.8885C32.989 16.5086 33.3347 18.2458 33.3333 20C33.3403 21.7444 32.9981 23.4726 32.3269 25.0826C31.6557 26.6927 30.669 28.1522 29.425 29.375L29.4062 29.3938L32.9625 32.9625C34.6653 31.2645 36.0163 29.2471 36.9379 27.0259C37.8596 24.8048 38.3338 22.4236 38.3333 20.0188V20Z\" fill=\"#FBBC04\"/>\n</svg>\n",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "displaySize": {
+                    "width": 40,
+                    "height": 40
+                  }
+                },
+                {
+                  "name": "Text",
+                  "type": "FRAME",
+                  "position": {
+                    "x": 56,
+                    "y": 6
+                  },
+                  "size": {
+                    "width": 1148,
+                    "height": 28
+                  },
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "primaryAxisSizingMode": "AUTO",
+                    "counterAxisSizingMode": "FIXED",
+                    "primaryAxisAlignItems": "MIN",
+                    "counterAxisAlignItems": "MIN",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 0
+                  },
+                  "children": [
+                    {
+                      "name": "Contextual app bar title",
+                      "type": "TEXT",
+                      "position": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 1148,
+                        "height": 28
+                      },
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": "rgba(31, 31, 31, 1.00)"
+                        }
+                      ],
+                      "typography": {
+                        "textAlign": {
+                          "horizontal": "LEFT",
+                          "vertical": "CENTER"
+                        },
+                        "textAutoResize": "HEIGHT",
+                        "fontSize": 22,
+                        "fontName": "Google Sans Regular",
+                        "lineHeight": "28.00px"
+                      },
+                      "characters": "My Google"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Right-side Actions",
+          "type": "INSTANCE",
+          "position": {
+            "x": 1272,
+            "y": 0
+          },
+          "size": {
+            "width": 168,
+            "height": 64
+          },
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "AUTO",
+            "counterAxisSizingMode": "FIXED",
+            "primaryAxisAlignItems": "MAX",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 0,
+              "right": 20,
+              "top": 0,
+              "bottom": 0
+            },
+            "itemSpacing": 0
+          },
+          "children": [
+            {
+              "name": "Frame",
+              "type": "FRAME",
+              "position": {
+                "x": 0,
+                "y": 8
+              },
+              "size": {
+                "width": 148,
+                "height": 48
+              },
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "MAX",
+                "counterAxisAlignItems": "CENTER",
+                "padding": {
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0
+                },
+                "itemSpacing": 4
+              },
+              "children": [
+                {
+                  "name": "Actions",
+                  "type": "FRAME",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "size": {
+                    "width": 96,
+                    "height": 48
+                  },
+                  "layout": {
+                    "layoutMode": "HORIZONTAL",
+                    "primaryAxisSizingMode": "AUTO",
+                    "counterAxisSizingMode": "AUTO",
+                    "primaryAxisAlignItems": "MAX",
+                    "counterAxisAlignItems": "CENTER",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 0
+                  },
+                  "children": [
+                    {
+                      "name": "CEE Icon button",
+                      "type": "INSTANCE",
+                      "position": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 48,
+                        "height": 48
+                      },
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "primaryAxisSizingMode": "AUTO",
+                        "counterAxisSizingMode": "AUTO",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "padding": {
+                          "left": 4,
+                          "right": 4,
+                          "top": 4,
+                          "bottom": 4
+                        },
+                        "itemSpacing": 0
+                      },
+                      "children": [
+                        {
+                          "name": "Container",
+                          "type": "FRAME",
+                          "position": {
+                            "x": 4,
+                            "y": 4
+                          },
+                          "size": {
+                            "width": 40,
+                            "height": 40
+                          },
+                          "cornerRadius": 1000,
+                          "layout": {
+                            "layoutMode": "HORIZONTAL",
+                            "primaryAxisSizingMode": "AUTO",
+                            "counterAxisSizingMode": "AUTO",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "padding": {
+                              "left": 0,
+                              "right": 0,
+                              "top": 0,
+                              "bottom": 0
+                            },
+                            "itemSpacing": 0
+                          },
+                          "children": [
+                            {
+                              "name": "State-layer",
+                              "type": "FRAME",
+                              "position": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "size": {
+                                "width": 40,
+                                "height": 40
+                              },
+                              "layout": {
+                                "layoutMode": "HORIZONTAL",
+                                "primaryAxisSizingMode": "AUTO",
+                                "counterAxisSizingMode": "AUTO",
+                                "primaryAxisAlignItems": "CENTER",
+                                "counterAxisAlignItems": "CENTER",
+                                "padding": {
+                                  "left": 8,
+                                  "right": 8,
+                                  "top": 8,
+                                  "bottom": 8
+                                },
+                                "itemSpacing": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "Icon",
+                                  "type": "ICON",
+                                  "svgData": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_3768)\">\n<path d=\"M11.95 18C12.3 18 12.5917 17.8833 12.825 17.65C13.075 17.4 13.2 17.1 13.2 16.75C13.2 16.4 13.075 16.1083 12.825 15.875C12.5917 15.625 12.3 15.5 11.95 15.5C11.6 15.5 11.3 15.625 11.05 15.875C10.8167 16.1083 10.7 16.4 10.7 16.75C10.7 17.1 10.8167 17.4 11.05 17.65C11.3 17.8833 11.6 18 11.95 18ZM11.05 14.15H12.9C12.9 13.6 12.9583 13.1667 13.075 12.85C13.2083 12.5333 13.5667 12.1 14.15 11.55C14.5833 11.1167 14.925 10.7083 15.175 10.325C15.425 9.925 15.55 9.45 15.55 8.9C15.55 7.96667 15.2083 7.25 14.525 6.75C13.8417 6.25 13.0333 6 12.1 6C11.15 6 10.375 6.25 9.775 6.75C9.19167 7.25 8.78333 7.85 8.55 8.55L10.2 9.2C10.2833 8.9 10.4667 8.575 10.75 8.225C11.05 7.875 11.5 7.7 12.1 7.7C12.6333 7.7 13.0333 7.85 13.3 8.15C13.5667 8.43333 13.7 8.75 13.7 9.1C13.7 9.43333 13.6 9.75 13.4 10.05C13.2 10.3333 12.95 10.6 12.65 10.85C11.9167 11.5 11.4667 11.9917 11.3 12.325C11.1333 12.6583 11.05 13.2667 11.05 14.15ZM12 22C10.6167 22 9.31667 21.7417 8.1 21.225C6.88333 20.6917 5.825 19.975 4.925 19.075C4.025 18.175 3.30833 17.1167 2.775 15.9C2.25833 14.6833 2 13.3833 2 12C2 10.6167 2.25833 9.31667 2.775 8.1C3.30833 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.31667 8.1 2.8C9.31667 2.26667 10.6167 2 12 2C13.3833 2 14.6833 2.26667 15.9 2.8C17.1167 3.31667 18.175 4.025 19.075 4.925C19.975 5.825 20.6833 6.88333 21.2 8.1C21.7333 9.31667 22 10.6167 22 12C22 13.3833 21.7333 14.6833 21.2 15.9C20.6833 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6917 15.9 21.225C14.6833 21.7417 13.3833 22 12 22ZM12 20C14.2333 20 16.125 19.225 17.675 17.675C19.225 16.125 20 14.2333 20 12C20 9.76667 19.225 7.875 17.675 6.325C16.125 4.775 14.2333 4 12 4C9.76667 4 7.875 4.775 6.325 6.325C4.775 7.875 4 9.76667 4 12C4 14.2333 4.775 16.125 6.325 17.675C7.875 19.225 9.76667 20 12 20Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_3768\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                                  "position": {
+                                    "x": 8,
+                                    "y": 8
+                                  },
+                                  "displaySize": {
+                                    "width": 24,
+                                    "height": 24
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "CEE Icon button",
+                      "type": "INSTANCE",
+                      "position": {
+                        "x": 48,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 48,
+                        "height": 48
+                      },
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "primaryAxisSizingMode": "AUTO",
+                        "counterAxisSizingMode": "AUTO",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "padding": {
+                          "left": 4,
+                          "right": 4,
+                          "top": 4,
+                          "bottom": 4
+                        },
+                        "itemSpacing": 0
+                      },
+                      "children": [
+                        {
+                          "name": "Container",
+                          "type": "FRAME",
+                          "position": {
+                            "x": 4,
+                            "y": 4
+                          },
+                          "size": {
+                            "width": 40,
+                            "height": 40
+                          },
+                          "cornerRadius": 1000,
+                          "layout": {
+                            "layoutMode": "HORIZONTAL",
+                            "primaryAxisSizingMode": "AUTO",
+                            "counterAxisSizingMode": "AUTO",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "padding": {
+                              "left": 0,
+                              "right": 0,
+                              "top": 0,
+                              "bottom": 0
+                            },
+                            "itemSpacing": 0
+                          },
+                          "children": [
+                            {
+                              "name": "State-layer",
+                              "type": "FRAME",
+                              "position": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "size": {
+                                "width": 40,
+                                "height": 40
+                              },
+                              "layout": {
+                                "layoutMode": "HORIZONTAL",
+                                "primaryAxisSizingMode": "AUTO",
+                                "counterAxisSizingMode": "AUTO",
+                                "primaryAxisAlignItems": "CENTER",
+                                "counterAxisAlignItems": "CENTER",
+                                "padding": {
+                                  "left": 8,
+                                  "right": 8,
+                                  "top": 8,
+                                  "bottom": 8
+                                },
+                                "itemSpacing": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "Icon",
+                                  "type": "ICON",
+                                  "svgData": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_3773)\">\n<path d=\"M9.25 22L8.85 18.8C8.63333 18.7167 8.425 18.6167 8.225 18.5C8.04167 18.3833 7.85833 18.2583 7.675 18.125L4.7 19.375L1.95 14.625L4.525 12.675C4.50833 12.5583 4.5 12.45 4.5 12.35C4.5 12.2333 4.5 12.1167 4.5 12C4.5 11.8833 4.5 11.775 4.5 11.675C4.5 11.5583 4.50833 11.4417 4.525 11.325L1.95 9.375L4.7 4.625L7.675 5.875C7.85833 5.74167 8.05 5.61667 8.25 5.5C8.45 5.38333 8.65 5.28333 8.85 5.2L9.25 2H14.75L15.15 5.2C15.3667 5.28333 15.5667 5.38333 15.75 5.5C15.95 5.61667 16.1417 5.74167 16.325 5.875L19.3 4.625L22.05 9.375L19.475 11.325C19.4917 11.4417 19.5 11.5583 19.5 11.675C19.5 11.775 19.5 11.8833 19.5 12C19.5 12.1167 19.5 12.2333 19.5 12.35C19.5 12.45 19.4833 12.5583 19.45 12.675L22.025 14.625L19.275 19.375L16.325 18.125C16.1417 18.2583 15.95 18.3833 15.75 18.5C15.55 18.6167 15.35 18.7167 15.15 18.8L14.75 22H9.25ZM11 20H12.975L13.325 17.35C13.8417 17.2167 14.3167 17.025 14.75 16.775C15.2 16.5083 15.6083 16.1917 15.975 15.825L18.45 16.85L19.425 15.15L17.275 13.525C17.3583 13.2917 17.4167 13.05 17.45 12.8C17.4833 12.5333 17.5 12.2667 17.5 12C17.5 11.7333 17.4833 11.475 17.45 11.225C17.4167 10.9583 17.3583 10.7083 17.275 10.475L19.425 8.85L18.45 7.15L15.975 8.2C15.6083 7.81667 15.2 7.5 14.75 7.25C14.3167 6.98333 13.8417 6.78333 13.325 6.65L13 4H11.025L10.675 6.65C10.1583 6.78333 9.675 6.98333 9.225 7.25C8.79167 7.5 8.39167 7.80833 8.025 8.175L5.55 7.15L4.575 8.85L6.725 10.45C6.64167 10.7 6.58333 10.95 6.55 11.2C6.51667 11.45 6.5 11.7167 6.5 12C6.5 12.2667 6.51667 12.525 6.55 12.775C6.58333 13.025 6.64167 13.275 6.725 13.525L4.575 15.15L5.55 16.85L8.025 15.8C8.39167 16.1833 8.79167 16.5083 9.225 16.775C9.675 17.025 10.1583 17.2167 10.675 17.35L11 20ZM12.05 15.5C13.0167 15.5 13.8417 15.1583 14.525 14.475C15.2083 13.7917 15.55 12.9667 15.55 12C15.55 11.0333 15.2083 10.2083 14.525 9.525C13.8417 8.84167 13.0167 8.5 12.05 8.5C11.0667 8.5 10.2333 8.84167 9.55 9.525C8.88333 10.2083 8.55 11.0333 8.55 12C8.55 12.9667 8.88333 13.7917 9.55 14.475C10.2333 15.1583 11.0667 15.5 12.05 15.5Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_3773\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                                  "position": {
+                                    "x": 8,
+                                    "y": 8
+                                  },
+                                  "displaySize": {
+                                    "width": 24,
+                                    "height": 24
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Profile menu",
+                  "type": "INSTANCE",
+                  "position": {
+                    "x": 100,
+                    "y": 0
+                  },
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  },
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "primaryAxisSizingMode": "FIXED",
+                    "counterAxisSizingMode": "FIXED",
+                    "primaryAxisAlignItems": "CENTER",
+                    "counterAxisAlignItems": "MAX",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 10
+                  },
+                  "children": [
+                    {
+                      "name": ".CEE Building Blocks/App bar-Profile",
+                      "type": "INSTANCE",
+                      "position": {
+                        "x": 8,
+                        "y": 8
+                      },
+                      "size": {
+                        "width": 40,
+                        "height": 32
+                      },
+                      "children": [
+                        {
+                          "name": "CEE Shared Building Blocks/Avatar",
+                          "type": "INSTANCE",
+                          "position": {
+                            "x": 0,
+                            "y": 0
+                          },
+                          "size": {
+                            "width": 32,
+                            "height": 32
+                          },
+                          "cornerRadius": 999,
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "color": "rgba(11, 87, 208, 1.00)"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "name": "Initial",
+                              "type": "TEXT",
+                              "position": {
+                                "x": -4,
+                                "y": -4
+                              },
+                              "size": {
+                                "width": 40,
+                                "height": 40
+                              },
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": "rgba(255, 255, 255, 1.00)"
+                                }
+                              ],
+                              "typography": {
+                                "textAlign": {
+                                  "horizontal": "CENTER",
+                                  "vertical": "CENTER"
+                                },
+                                "textAutoResize": "NONE",
+                                "fontSize": 16,
+                                "fontName": "Google Sans Text Medium",
+                                "lineHeight": "24.00px"
+                              },
+                              "characters": "A"
+                            }
+                          ]
+                        },
+                        {
+                          "name": ".CEE Building Blocks/App bar-Profile dropdown arrow",
+                          "type": "INSTANCE",
+                          "position": {
+                            "x": 24,
+                            "y": 16
+                          },
+                          "size": {
+                            "width": 16,
+                            "height": 16
+                          },
+                          "cornerRadius": 8,
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "color": "rgba(255, 255, 255, 1.00)"
+                            }
+                          ],
+                          "effects": [
+                            {
+                              "type": "DROP_SHADOW",
+                              "color": "rgba(0, 0, 0, 0.15)",
+                              "offset": {
+                                "x": 0,
+                                "y": 1
+                              },
+                              "radius": 3,
+                              "spread": 1
+                            },
+                            {
+                              "type": "DROP_SHADOW",
+                              "color": "rgba(0, 0, 0, 0.30)",
+                              "offset": {
+                                "x": 0,
+                                "y": 1
+                              },
+                              "radius": 2,
+                              "spread": 0
+                            }
+                          ],
+                          "children": [
+                            {
+                              "name": "arrow_drop_down",
+                              "type": "ICON",
+                              "svgData": "<svg viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_3780)\">\n<path d=\"M8 10L4 6H12L8 10Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_3780\">\n<rect width=\"16\" height=\"16\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                              "position": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "displaySize": {
+                                "width": 16,
+                                "height": 16
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CEE Contextual App Bar",
+      "type": "INSTANCE",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "size": {
+        "width": 1440,
+        "height": 64
+      },
+      "layout": {
+        "layoutMode": "HORIZONTAL",
+        "primaryAxisSizingMode": "FIXED",
+        "counterAxisSizingMode": "FIXED",
+        "primaryAxisAlignItems": "SPACE_BETWEEN",
+        "counterAxisAlignItems": "CENTER",
+        "padding": {
+          "left": 12,
+          "right": 0,
+          "top": 10,
+          "bottom": 10
+        },
+        "itemSpacing": 0
+      },
+      "children": [
+        {
+          "name": "App container",
+          "type": "VECTOR_GRAPHIC",
+          "svgData": "<svg viewBox=\"0 0 1440 64\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<rect width=\"1440\" height=\"64\" fill=\"white\"/>\n</svg>\n",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "displaySize": {
+            "width": 1440,
+            "height": 64
+          }
+        },
+        {
+          "name": "Content",
+          "type": "FRAME",
+          "position": {
+            "x": 12,
+            "y": 8
+          },
+          "size": {
+            "width": 1260,
+            "height": 48
+          },
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "FIXED",
+            "counterAxisSizingMode": "AUTO",
+            "primaryAxisAlignItems": "MIN",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 0,
+              "right": 0,
+              "top": 0,
+              "bottom": 0
+            },
+            "itemSpacing": 8
+          },
+          "children": [
+            {
+              "name": "Back icon",
+              "type": "INSTANCE",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "size": {
+                "width": 48,
+                "height": 48
+              },
+              "layout": {
+                "layoutMode": "VERTICAL",
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "CENTER",
+                "counterAxisAlignItems": "CENTER",
+                "padding": {
+                  "left": 4,
+                  "right": 4,
+                  "top": 4,
+                  "bottom": 4
+                },
+                "itemSpacing": 0
+              },
+              "children": [
+                {
+                  "name": "Container",
+                  "type": "FRAME",
+                  "position": {
+                    "x": 4,
+                    "y": 4
+                  },
+                  "size": {
+                    "width": 40,
+                    "height": 40
+                  },
+                  "cornerRadius": 1000,
+                  "layout": {
+                    "layoutMode": "HORIZONTAL",
+                    "primaryAxisSizingMode": "AUTO",
+                    "counterAxisSizingMode": "AUTO",
+                    "primaryAxisAlignItems": "CENTER",
+                    "counterAxisAlignItems": "CENTER",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 0
+                  },
+                  "children": [
+                    {
+                      "name": "State-layer",
+                      "type": "FRAME",
+                      "position": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 40,
+                        "height": 40
+                      },
+                      "layout": {
+                        "layoutMode": "HORIZONTAL",
+                        "primaryAxisSizingMode": "AUTO",
+                        "counterAxisSizingMode": "AUTO",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "padding": {
+                          "left": 8,
+                          "right": 8,
+                          "top": 8,
+                          "bottom": 8
+                        },
+                        "itemSpacing": -24
+                      },
+                      "children": [
+                        {
+                          "name": "Icon",
+                          "type": "ICON",
+                          "svgData": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_3787)\">\n<path d=\"M7.825 13L13.425 18.6L12 20L4 12L12 4L13.425 5.4L7.825 11H20V13H7.825Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_3787\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                          "position": {
+                            "x": 8,
+                            "y": 8
+                          },
+                          "displaySize": {
+                            "width": 24,
+                            "height": 24
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Product icon and text",
+              "type": "FRAME",
+              "position": {
+                "x": 56,
+                "y": 4
+              },
+              "size": {
+                "width": 1204,
+                "height": 40
+              },
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisSizingMode": "FIXED",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "MIN",
+                "counterAxisAlignItems": "CENTER",
+                "padding": {
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0
+                },
+                "itemSpacing": 16
+              },
+              "children": [
+                {
+                  "name": "Product logo",
+                  "type": "VECTOR_GRAPHIC",
+                  "svgData": "<svg viewBox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M20.0001 11.6667V11.6813V11.6667C18.9058 11.6661 17.8222 11.8817 16.8115 12.3011C15.8008 12.7205 14.8829 13.3354 14.1105 14.1105L15.8063 16.6667L17.5605 17.5605C17.8588 17.2059 18.2328 16.9229 18.655 16.7321C19.0773 16.5414 19.5369 16.4478 20.0001 16.4584C21.2834 16.4584 22.4084 17.1188 22.8355 18.2792C23.2626 19.4396 23.0209 20.4917 22.2918 21.2501L20.0001 23.5417L16.2188 27.2355L12.2918 30.8334C9.55635 29.0334 6.66676 24.6146 6.66676 20.0001C6.67774 16.4661 8.08126 13.079 10.573 10.573L9.17718 8.34381L7.05635 7.01672C5.34541 8.71791 3.98827 10.7411 3.06324 12.9694C2.1382 15.1978 1.66358 17.5873 1.66676 20.0001V20.0355C1.66676 27.2917 6.09593 32.0646 7.02301 32.9855C9.29593 35.248 11.3459 36.6667 12.2918 36.6667C12.6452 36.6664 12.9946 36.5921 13.3175 36.4486C13.6404 36.305 13.9297 36.0955 14.1668 35.8334C14.1668 35.8334 24.1105 26.9292 24.1668 26.8751C26.2834 24.8334 28.3334 22.5459 28.3334 20.0001C28.3334 17.7899 27.4555 15.6703 25.8927 14.1075C24.3299 12.5447 22.2102 11.6667 20.0001 11.6667Z\" fill=\"#4285F4\"/>\n<path d=\"M32.9687 7.0417C31.2662 5.33838 29.2448 3.98719 27.0199 3.06531C24.7951 2.14344 22.4104 1.66895 20.0021 1.66895C17.5938 1.66895 15.2091 2.14344 12.9842 3.06531C10.7594 3.98719 8.73792 5.33838 7.0354 7.0417L10.5771 10.5834C13.0659 8.08847 16.4426 6.68254 19.9665 6.67395C23.4905 6.66536 26.8741 8.05481 29.375 10.5375L32.1771 9.47295L32.9687 7.0417Z\" fill=\"#34A853\"/>\n<path d=\"M19.5146 31.0605L20 30.6251L16.2125 27.2292L15.7771 27.6417L19.5146 31.0605Z\" fill=\"#185ABC\"/>\n<path d=\"M32.1584 30.9479L29.4063 29.3937C28.8743 29.9122 28.307 30.3933 27.7084 30.8333L20.0001 23.5562L17.7084 21.2646C17.2523 20.7633 16.9876 20.1173 16.9609 19.4401C16.9342 18.7629 17.1473 18.098 17.5626 17.5625C16.7292 16.7291 15.0959 15.0791 14.1209 14.1C13.3438 14.8736 12.727 15.793 12.3058 16.8054C11.8847 17.8178 11.6675 18.9034 11.6667 20C11.6667 22.5 13.4917 24.6062 15.6251 26.6771C17.6563 28.65 20.0001 30.6354 20.0001 30.6354L25.8334 35.8437C26.5605 36.4937 27.0834 36.6416 27.7084 36.6416C28.5063 36.6416 29.9042 35.8833 32.9626 32.9354C32.9647 32.9583 32.148 30.9583 32.1584 30.9479Z\" fill=\"#EA4335\"/>\n<path d=\"M38.3333 20C38.3365 17.5876 37.8618 15.1985 36.9368 12.9704C36.0117 10.7424 34.6546 8.7196 32.9438 7.0188L29.4125 10.5605C30.6564 11.7975 31.6432 13.2684 32.3161 14.8885C32.989 16.5086 33.3347 18.2458 33.3333 20C33.3403 21.7444 32.9981 23.4726 32.3269 25.0826C31.6557 26.6927 30.669 28.1522 29.425 29.375L29.4062 29.3938L32.9625 32.9625C34.6653 31.2645 36.0163 29.2471 36.9379 27.0259C37.8596 24.8048 38.3338 22.4236 38.3333 20.0188V20Z\" fill=\"#FBBC04\"/>\n</svg>\n",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "displaySize": {
+                    "width": 40,
+                    "height": 40
+                  }
+                },
+                {
+                  "name": "Text",
+                  "type": "FRAME",
+                  "position": {
+                    "x": 56,
+                    "y": 6
+                  },
+                  "size": {
+                    "width": 1148,
+                    "height": 28
+                  },
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "primaryAxisSizingMode": "AUTO",
+                    "counterAxisSizingMode": "FIXED",
+                    "primaryAxisAlignItems": "MIN",
+                    "counterAxisAlignItems": "MIN",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 0
+                  },
+                  "children": [
+                    {
+                      "name": "Contextual app bar title",
+                      "type": "TEXT",
+                      "position": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 1148,
+                        "height": 28
+                      },
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": "rgba(31, 31, 31, 1.00)"
+                        }
+                      ],
+                      "typography": {
+                        "textAlign": {
+                          "horizontal": "LEFT",
+                          "vertical": "CENTER"
+                        },
+                        "textAutoResize": "HEIGHT",
+                        "fontSize": 22,
+                        "fontName": "Google Sans Regular",
+                        "lineHeight": "28.00px"
+                      },
+                      "characters": "My Google"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Right-side Actions",
+          "type": "INSTANCE",
+          "position": {
+            "x": 1272,
+            "y": 0
+          },
+          "size": {
+            "width": 168,
+            "height": 64
+          },
+          "layout": {
+            "layoutMode": "HORIZONTAL",
+            "primaryAxisSizingMode": "AUTO",
+            "counterAxisSizingMode": "FIXED",
+            "primaryAxisAlignItems": "MAX",
+            "counterAxisAlignItems": "CENTER",
+            "padding": {
+              "left": 0,
+              "right": 20,
+              "top": 0,
+              "bottom": 0
+            },
+            "itemSpacing": 0
+          },
+          "children": [
+            {
+              "name": "Frame",
+              "type": "FRAME",
+              "position": {
+                "x": 0,
+                "y": 8
+              },
+              "size": {
+                "width": 148,
+                "height": 48
+              },
+              "layout": {
+                "layoutMode": "HORIZONTAL",
+                "primaryAxisSizingMode": "AUTO",
+                "counterAxisSizingMode": "AUTO",
+                "primaryAxisAlignItems": "MAX",
+                "counterAxisAlignItems": "CENTER",
+                "padding": {
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                  "bottom": 0
+                },
+                "itemSpacing": 4
+              },
+              "children": [
+                {
+                  "name": "Actions",
+                  "type": "FRAME",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "size": {
+                    "width": 96,
+                    "height": 48
+                  },
+                  "layout": {
+                    "layoutMode": "HORIZONTAL",
+                    "primaryAxisSizingMode": "AUTO",
+                    "counterAxisSizingMode": "AUTO",
+                    "primaryAxisAlignItems": "MAX",
+                    "counterAxisAlignItems": "CENTER",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 0
+                  },
+                  "children": [
+                    {
+                      "name": "CEE Icon button",
+                      "type": "INSTANCE",
+                      "position": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 48,
+                        "height": 48
+                      },
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "primaryAxisSizingMode": "AUTO",
+                        "counterAxisSizingMode": "AUTO",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "padding": {
+                          "left": 4,
+                          "right": 4,
+                          "top": 4,
+                          "bottom": 4
+                        },
+                        "itemSpacing": 0
+                      },
+                      "children": [
+                        {
+                          "name": "Container",
+                          "type": "FRAME",
+                          "position": {
+                            "x": 4,
+                            "y": 4
+                          },
+                          "size": {
+                            "width": 40,
+                            "height": 40
+                          },
+                          "cornerRadius": 1000,
+                          "layout": {
+                            "layoutMode": "HORIZONTAL",
+                            "primaryAxisSizingMode": "AUTO",
+                            "counterAxisSizingMode": "AUTO",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "padding": {
+                              "left": 0,
+                              "right": 0,
+                              "top": 0,
+                              "bottom": 0
+                            },
+                            "itemSpacing": 0
+                          },
+                          "children": [
+                            {
+                              "name": "State-layer",
+                              "type": "FRAME",
+                              "position": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "size": {
+                                "width": 40,
+                                "height": 40
+                              },
+                              "layout": {
+                                "layoutMode": "HORIZONTAL",
+                                "primaryAxisSizingMode": "AUTO",
+                                "counterAxisSizingMode": "AUTO",
+                                "primaryAxisAlignItems": "CENTER",
+                                "counterAxisAlignItems": "CENTER",
+                                "padding": {
+                                  "left": 8,
+                                  "right": 8,
+                                  "top": 8,
+                                  "bottom": 8
+                                },
+                                "itemSpacing": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "Icon",
+                                  "type": "ICON",
+                                  "svgData": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_3816)\">\n<path d=\"M11.95 18C12.3 18 12.5917 17.8833 12.825 17.65C13.075 17.4 13.2 17.1 13.2 16.75C13.2 16.4 13.075 16.1083 12.825 15.875C12.5917 15.625 12.3 15.5 11.95 15.5C11.6 15.5 11.3 15.625 11.05 15.875C10.8167 16.1083 10.7 16.4 10.7 16.75C10.7 17.1 10.8167 17.4 11.05 17.65C11.3 17.8833 11.6 18 11.95 18ZM11.05 14.15H12.9C12.9 13.6 12.9583 13.1667 13.075 12.85C13.2083 12.5333 13.5667 12.1 14.15 11.55C14.5833 11.1167 14.925 10.7083 15.175 10.325C15.425 9.925 15.55 9.45 15.55 8.9C15.55 7.96667 15.2083 7.25 14.525 6.75C13.8417 6.25 13.0333 6 12.1 6C11.15 6 10.375 6.25 9.775 6.75C9.19167 7.25 8.78333 7.85 8.55 8.55L10.2 9.2C10.2833 8.9 10.4667 8.575 10.75 8.225C11.05 7.875 11.5 7.7 12.1 7.7C12.6333 7.7 13.0333 7.85 13.3 8.15C13.5667 8.43333 13.7 8.75 13.7 9.1C13.7 9.43333 13.6 9.75 13.4 10.05C13.2 10.3333 12.95 10.6 12.65 10.85C11.9167 11.5 11.4667 11.9917 11.3 12.325C11.1333 12.6583 11.05 13.2667 11.05 14.15ZM12 22C10.6167 22 9.31667 21.7417 8.1 21.225C6.88333 20.6917 5.825 19.975 4.925 19.075C4.025 18.175 3.30833 17.1167 2.775 15.9C2.25833 14.6833 2 13.3833 2 12C2 10.6167 2.25833 9.31667 2.775 8.1C3.30833 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.31667 8.1 2.8C9.31667 2.26667 10.6167 2 12 2C13.3833 2 14.6833 2.26667 15.9 2.8C17.1167 3.31667 18.175 4.025 19.075 4.925C19.975 5.825 20.6833 6.88333 21.2 8.1C21.7333 9.31667 22 10.6167 22 12C22 13.3833 21.7333 14.6833 21.2 15.9C20.6833 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6917 15.9 21.225C14.6833 21.7417 13.3833 22 12 22ZM12 20C14.2333 20 16.125 19.225 17.675 17.675C19.225 16.125 20 14.2333 20 12C20 9.76667 19.225 7.875 17.675 6.325C16.125 4.775 14.2333 4 12 4C9.76667 4 7.875 4.775 6.325 6.325C4.775 7.875 4 9.76667 4 12C4 14.2333 4.775 16.125 6.325 17.675C7.875 19.225 9.76667 20 12 20Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_3816\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                                  "position": {
+                                    "x": 8,
+                                    "y": 8
+                                  },
+                                  "displaySize": {
+                                    "width": 24,
+                                    "height": 24
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "CEE Icon button",
+                      "type": "INSTANCE",
+                      "position": {
+                        "x": 48,
+                        "y": 0
+                      },
+                      "size": {
+                        "width": 48,
+                        "height": 48
+                      },
+                      "layout": {
+                        "layoutMode": "VERTICAL",
+                        "primaryAxisSizingMode": "AUTO",
+                        "counterAxisSizingMode": "AUTO",
+                        "primaryAxisAlignItems": "CENTER",
+                        "counterAxisAlignItems": "CENTER",
+                        "padding": {
+                          "left": 4,
+                          "right": 4,
+                          "top": 4,
+                          "bottom": 4
+                        },
+                        "itemSpacing": 0
+                      },
+                      "children": [
+                        {
+                          "name": "Container",
+                          "type": "FRAME",
+                          "position": {
+                            "x": 4,
+                            "y": 4
+                          },
+                          "size": {
+                            "width": 40,
+                            "height": 40
+                          },
+                          "cornerRadius": 1000,
+                          "layout": {
+                            "layoutMode": "HORIZONTAL",
+                            "primaryAxisSizingMode": "AUTO",
+                            "counterAxisSizingMode": "AUTO",
+                            "primaryAxisAlignItems": "CENTER",
+                            "counterAxisAlignItems": "CENTER",
+                            "padding": {
+                              "left": 0,
+                              "right": 0,
+                              "top": 0,
+                              "bottom": 0
+                            },
+                            "itemSpacing": 0
+                          },
+                          "children": [
+                            {
+                              "name": "State-layer",
+                              "type": "FRAME",
+                              "position": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "size": {
+                                "width": 40,
+                                "height": 40
+                              },
+                              "layout": {
+                                "layoutMode": "HORIZONTAL",
+                                "primaryAxisSizingMode": "AUTO",
+                                "counterAxisSizingMode": "AUTO",
+                                "primaryAxisAlignItems": "CENTER",
+                                "counterAxisAlignItems": "CENTER",
+                                "padding": {
+                                  "left": 8,
+                                  "right": 8,
+                                  "top": 8,
+                                  "bottom": 8
+                                },
+                                "itemSpacing": 0
+                              },
+                              "children": [
+                                {
+                                  "name": "Icon",
+                                  "type": "ICON",
+                                  "svgData": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_3821)\">\n<path d=\"M9.25 22L8.85 18.8C8.63333 18.7167 8.425 18.6167 8.225 18.5C8.04167 18.3833 7.85833 18.2583 7.675 18.125L4.7 19.375L1.95 14.625L4.525 12.675C4.50833 12.5583 4.5 12.45 4.5 12.35C4.5 12.2333 4.5 12.1167 4.5 12C4.5 11.8833 4.5 11.775 4.5 11.675C4.5 11.5583 4.50833 11.4417 4.525 11.325L1.95 9.375L4.7 4.625L7.675 5.875C7.85833 5.74167 8.05 5.61667 8.25 5.5C8.45 5.38333 8.65 5.28333 8.85 5.2L9.25 2H14.75L15.15 5.2C15.3667 5.28333 15.5667 5.38333 15.75 5.5C15.95 5.61667 16.1417 5.74167 16.325 5.875L19.3 4.625L22.05 9.375L19.475 11.325C19.4917 11.4417 19.5 11.5583 19.5 11.675C19.5 11.775 19.5 11.8833 19.5 12C19.5 12.1167 19.5 12.2333 19.5 12.35C19.5 12.45 19.4833 12.5583 19.45 12.675L22.025 14.625L19.275 19.375L16.325 18.125C16.1417 18.2583 15.95 18.3833 15.75 18.5C15.55 18.6167 15.35 18.7167 15.15 18.8L14.75 22H9.25ZM11 20H12.975L13.325 17.35C13.8417 17.2167 14.3167 17.025 14.75 16.775C15.2 16.5083 15.6083 16.1917 15.975 15.825L18.45 16.85L19.425 15.15L17.275 13.525C17.3583 13.2917 17.4167 13.05 17.45 12.8C17.4833 12.5333 17.5 12.2667 17.5 12C17.5 11.7333 17.4833 11.475 17.45 11.225C17.4167 10.9583 17.3583 10.7083 17.275 10.475L19.425 8.85L18.45 7.15L15.975 8.2C15.6083 7.81667 15.2 7.5 14.75 7.25C14.3167 6.98333 13.8417 6.78333 13.325 6.65L13 4H11.025L10.675 6.65C10.1583 6.78333 9.675 6.98333 9.225 7.25C8.79167 7.5 8.39167 7.80833 8.025 8.175L5.55 7.15L4.575 8.85L6.725 10.45C6.64167 10.7 6.58333 10.95 6.55 11.2C6.51667 11.45 6.5 11.7167 6.5 12C6.5 12.2667 6.51667 12.525 6.55 12.775C6.58333 13.025 6.64167 13.275 6.725 13.525L4.575 15.15L5.55 16.85L8.025 15.8C8.39167 16.1833 8.79167 16.5083 9.225 16.775C9.675 17.025 10.1583 17.2167 10.675 17.35L11 20ZM12.05 15.5C13.0167 15.5 13.8417 15.1583 14.525 14.475C15.2083 13.7917 15.55 12.9667 15.55 12C15.55 11.0333 15.2083 10.2083 14.525 9.525C13.8417 8.84167 13.0167 8.5 12.05 8.5C11.0667 8.5 10.2333 8.84167 9.55 9.525C8.88333 10.2083 8.55 11.0333 8.55 12C8.55 12.9667 8.88333 13.7917 9.55 14.475C10.2333 15.1583 11.0667 15.5 12.05 15.5Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_3821\">\n<rect width=\"24\" height=\"24\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                                  "position": {
+                                    "x": 8,
+                                    "y": 8
+                                  },
+                                  "displaySize": {
+                                    "width": 24,
+                                    "height": 24
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Profile menu",
+                  "type": "INSTANCE",
+                  "position": {
+                    "x": 100,
+                    "y": 0
+                  },
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  },
+                  "layout": {
+                    "layoutMode": "VERTICAL",
+                    "primaryAxisSizingMode": "FIXED",
+                    "counterAxisSizingMode": "FIXED",
+                    "primaryAxisAlignItems": "CENTER",
+                    "counterAxisAlignItems": "MAX",
+                    "padding": {
+                      "left": 0,
+                      "right": 0,
+                      "top": 0,
+                      "bottom": 0
+                    },
+                    "itemSpacing": 10
+                  },
+                  "children": [
+                    {
+                      "name": ".CEE Building Blocks/App bar-Profile",
+                      "type": "INSTANCE",
+                      "position": {
+                        "x": 8,
+                        "y": 8
+                      },
+                      "size": {
+                        "width": 40,
+                        "height": 32
+                      },
+                      "children": [
+                        {
+                          "name": "CEE Shared Building Blocks/Avatar",
+                          "type": "INSTANCE",
+                          "position": {
+                            "x": 0,
+                            "y": 0
+                          },
+                          "size": {
+                            "width": 32,
+                            "height": 32
+                          },
+                          "cornerRadius": 999,
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "color": "rgba(11, 87, 208, 1.00)"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "name": "Initial",
+                              "type": "TEXT",
+                              "position": {
+                                "x": -4,
+                                "y": -4
+                              },
+                              "size": {
+                                "width": 40,
+                                "height": 40
+                              },
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": "rgba(255, 255, 255, 1.00)"
+                                }
+                              ],
+                              "typography": {
+                                "textAlign": {
+                                  "horizontal": "CENTER",
+                                  "vertical": "CENTER"
+                                },
+                                "textAutoResize": "NONE",
+                                "fontSize": 16,
+                                "fontName": "Google Sans Text Medium",
+                                "lineHeight": "24.00px"
+                              },
+                              "characters": "A"
+                            }
+                          ]
+                        },
+                        {
+                          "name": ".CEE Building Blocks/App bar-Profile dropdown arrow",
+                          "type": "INSTANCE",
+                          "position": {
+                            "x": 24,
+                            "y": 16
+                          },
+                          "size": {
+                            "width": 16,
+                            "height": 16
+                          },
+                          "cornerRadius": 8,
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "color": "rgba(255, 255, 255, 1.00)"
+                            }
+                          ],
+                          "effects": [
+                            {
+                              "type": "DROP_SHADOW",
+                              "color": "rgba(0, 0, 0, 0.15)",
+                              "offset": {
+                                "x": 0,
+                                "y": 1
+                              },
+                              "radius": 3,
+                              "spread": 1
+                            },
+                            {
+                              "type": "DROP_SHADOW",
+                              "color": "rgba(0, 0, 0, 0.30)",
+                              "offset": {
+                                "x": 0,
+                                "y": 1
+                              },
+                              "radius": 2,
+                              "spread": 0
+                            }
+                          ],
+                          "children": [
+                            {
+                              "name": "arrow_drop_down",
+                              "type": "ICON",
+                              "svgData": "<svg viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_10432_3828)\">\n<path d=\"M8 10L4 6H12L8 10Z\" fill=\"#444746\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_10432_3828\">\n<rect width=\"16\" height=\"16\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n",
+                              "position": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "displaySize": {
+                                "width": 16,
+                                "height": 16
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ellipse",
+      "type": "VECTOR_GRAPHIC",
+      "svgData": "<svg viewBox=\"0 0 1378 200\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g filter=\"url(#filter0_f_10311_9873)\" style=\"mix-blend-mode:multiply\">\n<ellipse cx=\"795\" cy=\"19\" rx=\"720\" ry=\"106\" fill=\"url(#paint0_linear_10311_9873)\" fill-opacity=\"0.25\"/>\n<ellipse cx=\"795\" cy=\"19\" rx=\"720\" ry=\"106\" fill=\"url(#paint1_radial_10311_9873)\"/>\n</g>\n<defs>\n<filter id=\"filter0_f_10311_9873\" x=\"0\" y=\"-162\" width=\"1590\" height=\"362\" filterUnits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">\n<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>\n<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"BackgroundImageFix\" result=\"shape\"/>\n<feGaussianBlur stdDeviation=\"37.5\" result=\"effect1_foregroundBlur_10311_9873\"/>\n</filter>\n<linearGradient id=\"paint0_linear_10311_9873\" x1=\"92\" y1=\"61.9483\" x2=\"1141.48\" y2=\"-655.844\" gradientUnits=\"userSpaceOnUse\">\n<stop stop-color=\"#AC75FF\" stop-opacity=\"0.4\"/>\n<stop offset=\"0.504808\" stop-color=\"#4285F4\" stop-opacity=\"0.4\"/>\n<stop offset=\"1\" stop-color=\"#2AAF8F\" stop-opacity=\"0.4\"/>\n</linearGradient>\n<radialGradient id=\"paint1_radial_10311_9873\" cx=\"0\" cy=\"0\" r=\"1\" gradientTransform=\"matrix(720 0.242905 -0.100515 106 795 19)\" gradientUnits=\"userSpaceOnUse\">\n<stop stop-color=\"white\" stop-opacity=\"0\"/>\n<stop offset=\"1\" stop-color=\"white\"/>\n</radialGradient>\n</defs>\n</svg>\n",
+      "position": {
+        "x": 137,
+        "y": -87
+      },
+      "displaySize": {
+        "width": 1440,
+        "height": 212
+      }
+    }
+  ]
+}

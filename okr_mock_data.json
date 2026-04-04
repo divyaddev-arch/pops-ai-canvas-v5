@@ -1,0 +1,119 @@
+{
+  "year": 2026,
+  "team": "Google AI & Cloud Leadership",
+  "vision": "Lead the global transformation to an AI-first era, empowering enterprises, developers, and users with responsible and impactful AI.",
+  "okrs": [
+    {
+      "title": "Establish Google Cloud as the undisputed leader in Enterprise AI adoption, driving significant market share growth.",
+      "priority": "P0",
+      "owner": "richardmccoll",
+      "key_results": [
+        {
+          "title": "Grow Google Cloud's AI-powered product revenue by 60% year-over-year, exceeding market growth rates.",
+          "metric": "AI Product Revenue Growth",
+          "target": "60%",
+          "current": "N/A",
+          "owner": "Cloud AI Product Leads"
+        },
+        {
+          "title": "Secure 75 new strategic enterprise customer wins for Vertex AI platform and industry-specific AI solutions.",
+          "metric": "Enterprise Customer Wins",
+          "target": 75,
+          "current": 0,
+          "owner": "Cloud Sales Leadership"
+        },
+        {
+          "title": "Achieve top-quartile analyst rankings for Google Cloud's AI portfolio in at least 3 major industry reports.",
+          "metric": "Analyst Rankings",
+          "target": "Top Quartile in 3 Reports",
+          "current": "Varies",
+          "owner": "Cloud Marketing & Strategy"
+        }
+      ]
+    },
+    {
+      "title": "Revolutionize developer productivity and innovation through deep AI integration across Google Cloud's developer platforms.",
+      "priority": "P0",
+      "owner": "nsudhir",
+      "key_results": [
+        {
+          "title": "Increase the number of active developers using AI features within Google Cloud tools (e.g., Cloud Code AI, Gemini in BigQuery) by 500,000.",
+          "metric": "AI-Enhanced Developer Usage",
+          "target": "500,000 new developers",
+          "current": "Baseline Pending",
+          "owner": "Developer Relations & Product"
+        },
+        {
+          "title": "Reduce the average development cycle time for AI-powered applications on Google Cloud by 25%, as measured by customer surveys.",
+          "metric": "Dev Cycle Time Reduction",
+          "target": "25% decrease",
+          "current": "Baseline Pending",
+          "owner": "Cloud DevRel & Engineering"
+        },
+        {
+          "title": "Launch 3 new highly-differentiated AI-powered developer products or services on Google Cloud, each achieving 10,000+ monthly active users within 6 months of launch.",
+          "metric": "New AI Product Adoption",
+          "target": "3 products > 10k MAU",
+          "current": "0",
+          "owner": "Cloud Product Management"
+        }
+      ]
+    },
+    {
+      "title": "Ensure Google's AI development and deployment consistently adheres to and advances Responsible AI principles, building global trust.",
+      "priority": "P0",
+      "owner": "yavinay",
+      "key_results": [
+        {
+          "title": "Integrate comprehensive Responsible AI evaluations and fairness testing into the launch process for all 10+ major AI model updates and product releases.",
+          "metric": "RAI Evaluation Coverage",
+          "target": "100% of major launches",
+          "current": "75%",
+          "owner": "Responsible AI Leadership"
+        },
+        {
+          "title": "Reduce critical AI safety and bias incidents reported across Google's top 20 AI products by 40% year-over-year.",
+          "metric": "Critical RAI Incidents",
+          "target": "40% reduction",
+          "current": "Baseline Pending",
+          "owner": "AI Safety & Governance Teams"
+        },
+        {
+          "title": "Publish 5 leading research papers and release 2 open-source toolkits advancing the state-of-the-art in AI interpretability, privacy, or fairness.",
+          "metric": "RAI Research & Tooling",
+          "target": "5 papers, 2 toolkits",
+          "current": "Ongoing",
+          "owner": "Google Research & Open Source"
+        }
+      ]
+    },
+    {
+      "title": "Pioneer foundational AI breakthroughs, pushing the boundaries of what's possible and securing Google's long-term leadership.",
+      "priority": "P1",
+      "owner": "Unassigned",
+      "key_results": [
+        {
+          "title": "Demonstrate a novel AI architecture that achieves a 2x improvement in training efficiency on key benchmark tasks compared to 2025 models.",
+          "metric": "AI Training Efficiency Gain",
+          "target": "2x",
+          "current": "Baseline Pending",
+          "owner": "DeepMind & Research"
+        },
+        {
+          "title": "Develop and validate a prototype for a new generation of AI-specific hardware, showing a 5x improvement in performance-per-watt for generative AI workloads.",
+          "metric": "Hardware Efficiency Prototype",
+          "target": "5x Perf/Watt",
+          "current": "Concept Phase",
+          "owner": "Hardware & Systems Teams"
+        },
+        {
+          "title": "Publish a seminal paper or achieve a significant milestone in quantum algorithm development with clear implications for future AI acceleration.",
+          "metric": "Quantum AI Milestone",
+          "target": "Significant Breakthrough",
+          "current": "Ongoing Research",
+          "owner": "Google Quantum AI"
+        }
+      ]
+    }
+  ]
+}
