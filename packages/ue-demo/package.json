@@ -1,0 +1,7 @@
+{
+  "name": "@my-google-project/ue-demo",
+  "version": "1.0.0",
+  "description": "Demo applications and examples for UE package",
+  "main": "index.ts",
+  "license": "ISC"
+}

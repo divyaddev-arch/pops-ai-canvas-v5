@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth, onAuthStateChanged, User, signInWithPopup, googleProvider, signOut, db, doc, setDoc, serverTimestamp, getDoc } from './firebase';
+import { handleFirestoreError, OperationType } from './firestoreUtils';
 
 interface AuthContextType {
   user: User | null;
@@ -13,13 +14,14 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         // Create/Update user document
+        const userRef = doc(db, 'users', user.uid);
         try {
-          const userRef = doc(db, 'users', user.uid);
           const userSnap = await getDoc(userRef);
           
           if (!userSnap.exists()) {
@@ -40,10 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             await setDoc(userRef, userData);
           }
         } catch (error) {
-          console.error('Error syncing user to Firestore:', error);
-          if (error instanceof Error) {
-            console.error('Error message:', error.message);
-          }
+          handleFirestoreError(error, OperationType.WRITE, `users/${user.uid}`);
         }
       }
       setUser(user);
@@ -53,10 +52,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const login = async () => {
+    if (isLoggingIn) return;
+    setIsLoggingIn(true);
     try {
       await signInWithPopup(auth, googleProvider);
-    } catch (error) {
-      console.error('Login failed:', error);
+    } catch (error: any) {
+      if (error.code === 'auth/popup-closed-by-user') {
+        console.log('Login popup closed by user');
+      } else {
+        console.error('Login failed:', error);
+      }
+    } finally {
+      setIsLoggingIn(false);
     }
   };
 

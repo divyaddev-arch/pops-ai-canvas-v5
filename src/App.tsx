@@ -1,14 +1,10 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import HomePage from '../creatives/home-page/index';
+import HomePage from '../homepage/index';
 import { AuthProvider, useAuth } from './lib/AuthContext';
-import LoginPage from './components/LoginPage';
-import { ThemeProvider } from '@my-google-project/gm3-react-components';
-import { testFirestoreConnection } from './lib/firebase';
+import LoginPage from '../homepage/LoginPage';
+import { UnifiedLayout } from '../creatives/UnifiedLayout';
 
 const VERSION = '1774592747441';
-
-// Test Firestore connection on boot
-testFirestoreConnection();
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -96,6 +92,15 @@ const AppContent: React.FC = () => {
     return () => clearInterval(interval);
   }, [statusChecked]);
 
+  // Firestore Connection Test
+  React.useEffect(() => {
+    if (user) {
+      import('./lib/firebase').then(({ testFirestoreConnection }) => {
+        testFirestoreConnection();
+      });
+    }
+  }, [user]);
+
   React.useEffect(() => {
     if (!loading && statusChecked) {
       const storedVersion = sessionStorage.getItem('app-version');
@@ -131,17 +136,15 @@ const AppContent: React.FC = () => {
     return <LoginPage />;
   }
 
-  return <HomePage />;
+  return <UnifiedLayout userName={user.displayName || 'Divya'} userEmail={user.email || ''} />;
 };
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <ErrorBoundary>
-        <AuthProvider>
-          <AppContent />
-        </AuthProvider>
-      </ErrorBoundary>
-    </ThemeProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }

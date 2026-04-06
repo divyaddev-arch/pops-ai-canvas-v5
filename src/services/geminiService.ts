@@ -98,7 +98,10 @@ export const buildSystemInstruction = (reactState: string) => {
   
   - If Tone is "Supportive Mentor": 
     * Use empathetic, warm, and encouraging language. 
+    * Focus on the 'human' side of leadership and engineering.
+    * Prioritize 1:1 conversation preparation and reflection.
     * Focus on psychological safety, long-term growth, and personal well-being.
+    * Celebrate successes and provide a safe space for discussing challenges.
     * Avoid being overly transactional or metric-heavy unless asked.
   
   - If Tone is "Executive and Direct": 
@@ -127,9 +130,9 @@ export const buildSystemInstruction = (reactState: string) => {
 
   - If Tone is "Supportive Mentor":
     * UI Aesthetic: Spacious, soft, and inviting. Use large rounded corners (rounded-2xl) and gentle shadows.
-    * Components: Progress trackers, "Reflection" text areas, and encouraging micro-copy.
-    * Interaction: Guided step-by-step flows, celebratory feedback (e.g., motion animations), and "Help" tooltips.
-    * Visuals: Warm and calming colors (e.g., Sage, Soft Blue, Cream).
+    * Components: Prioritize progress trackers, 'Reflection' text areas, and encouraging micro-copy.
+    * Interaction: Use guided step-by-step flows, celebratory feedback (e.g., motion animations), and helpful tooltips.
+    * Visuals: Use a warm and calming color palette (e.g., Sage, Soft Blue, Cream).
 
   - If Tone is "Academic & Analytical":
     * UI Aesthetic: Structured, hierarchical, and scholarly. Use clear typography and distinct sections.
@@ -167,7 +170,9 @@ export const buildSystemInstruction = (reactState: string) => {
   - STATE-DRIVEN: Use 'currentView' for navigation.
   - BACKEND-FIRST: Use Firestore/Gemini from turn 1.
   - STATE MACHINES: Implement complex flows as states.
-  - FEEDBACK: Use loading/success/error indicators.
+  - FEEDBACK: Provide loading/success/error indicators for all actions.
+  - COMPLIANCE: Do not share compensation data across unauthorized peers.
+  - COMPLIANCE: Do not generate policy advice from general knowledge; prioritize local compliance.
 
   # Intent Detection Categories
   [CAREER_COACH]: Professional growth, resumes, interviewing.

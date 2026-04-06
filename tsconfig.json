@@ -18,10 +18,10 @@
     "jsx": "react-jsx",
     "paths": {
       "@my-google-project/gm3-react-components": [
-        "packages/design-vibe/gm3-react-components/src"
+        "packages/gm3-react-components"
       ],
       "@my-google-project/gm3-react-components/*": [
-        "packages/design-vibe/gm3-react-components/src/*"
+        "packages/gm3-react-components/*"
       ],
       "@/*": [
         "./*"
@@ -33,6 +33,6 @@
   "include": [
     "src",
     "creatives",
-    "packages/design-vibe/gm3-react-components/src"
+    "packages"
   ]
 }

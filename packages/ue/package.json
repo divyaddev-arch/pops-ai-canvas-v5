@@ -1,0 +1,7 @@
+{
+  "name": "@my-google-project/ue",
+  "version": "1.0.0",
+  "description": "Boilerplate for applications built using Pops AI Canvas",
+  "main": "index.ts",
+  "license": "ISC"
+}
