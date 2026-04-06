@@ -136,7 +136,7 @@ const AppContent: React.FC = () => {
     return <LoginPage />;
   }
 
-  return <UnifiedLayout userName={user.displayName || 'Divya'} userEmail={user.email || ''} />;
+  return <HomePage />;
 };
 
 export default function App() {
