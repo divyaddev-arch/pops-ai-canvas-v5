@@ -4,8 +4,8 @@ export default {
   darkMode: 'class',
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
-    './creatives/**/*.{js,ts,jsx,tsx,mdx}',
-     './creatives/**/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/creatives/**/*.{js,ts,jsx,tsx,mdx}',
+     './src/creatives/**/**/*.{js,ts,jsx,tsx,mdx}',
     './packages/design-vibe/gm3-react-components/src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
